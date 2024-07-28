@@ -1,0 +1,72 @@
+@import './reset.css';
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  border:1px solid #000;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 0 12px;
+  background-color: #FFFFFB;
+}
+
+.header .brand {
+  width: 20x;
+  height: 20px;
+}
+
+.header .nav {
+  display: flex;
+  border: blue;
+}
+.header .nav .nav__item {
+margin-right: 36px;
+}
+.header .nav .nav__item:last-child {
+margin-right: 0px;
+}
+
+.header .nav .nav__link{
+position: relative;
+font-size: 20px;
+color:#F4A7B9;
+}
+
+.header .nav .nav__link:hover {
+  color: #FEDFE1;
+}
+
+/* 按有底線 */
+.header .nav .nav__link::before {
+  content: '';
+  display: block;
+  background-color:#F4A7B9;
+  width: 0%;
+  height: 2px;
+  position:absolute;
+  left:0;
+  bottom:0;
+  transition: all.3s;
+}
+
+.header .nav .nav__item:hover .nav__link::before {
+  width: 100%;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  background-color: white;
+}

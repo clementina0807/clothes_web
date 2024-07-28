@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  border: 1px solid red;
+}
+
+header {
+  background: #DB4D6D;
+  border: 1px solid #000;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  background: #58B2DC;
+  color: #fff;
+}
