@@ -20,3 +20,7 @@ a {
     'opsz' 24
 }
 
+.ant-modal-footer .ant-btn-default {
+  display: none !important;
+}
+

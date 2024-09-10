@@ -9,7 +9,10 @@ export default {
         "Bottom-pink":"#F4A7B9",
         "title-pink":"#DB4D6D",
         "line-green":"#86C166",
-        "fb-blue":"#7DB9DE"
+        "fb-blue":"#7DB9DE",
+        "button" :"#dedede",
+        "background":"#ffffff", 
+        "sellout":"#BDC0BA"
       },
     },
   },

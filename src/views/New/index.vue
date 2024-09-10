@@ -1,6 +1,8 @@
 <script setup></script>
+
 <template>
-  <div>bestseller</div>
+  <div>new</div>
 </template>
 
 <style scoped></style>
+

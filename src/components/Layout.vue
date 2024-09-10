@@ -5,30 +5,23 @@ import { useRouter, useRoute } from 'vue-router';
 const router = useRouter()
 router.push('');
 
-
-// 登入 => 有token 就是登入狀態
-// 前端:帳號密碼 => 後端 => 回傳token給前端 => token存在前端內
-// api => 網址[協議+域名+路徑]+方法+請求體(可能)
-// axios.方法('網址', 請求體)
-
-const open = ref(true)
+const open = ref(false)
 const loginForm = reactive({
   username: '',
   password: ''
 })
 
+const showModal = (bool) => {
+  open.value = bool
+} 
+
 const login = async() => {
-  // HTTP請求
   const { data } = await axios.post('https://dummyjson.com/auth/login', {
-    username: 'emilys',
-    password: 'emilyspass',
+    username: loginForm.username,
+    password: loginForm.password,
   })
   const { token } = data
   localStorage.setItem('TOKEN', token)
-}
-// login()
-
-const submit = () => {
   open.value = false
 }
 
@@ -54,7 +47,7 @@ const menuList = ref([
   {
     icon: 'fa-regular fa-user',
     title: '會員中心',
-    // action: 
+    action: () => showModal(true)
   },
   {
     icon: 'fa-solid fa-globe',
@@ -71,7 +64,7 @@ const menuList = ref([
 <template>
   <div class="flex flex-col min-h-screen">
     <header class="bg-headerColor bg-opacity-pink-300">
-      <ul class="flex justify-end px-3 py-3">
+      <ul class="flex justify-end px-3 py-3 ">
         <li v-for="item in menuList" :key="item.icon"
           class="flex flex-col items-center mr-5 last:mr-0 cursor-pointer group" @click="item.action">
           <i :class="item.icon" class="mb-1"></i>
@@ -83,16 +76,6 @@ const menuList = ref([
       <a href="http://localhost:5173/">
         <img class="w-[200px] block mx-auto cursor-pointer " src="@/assets/images/b.gif" alt="" /></a>
 
-      <!-- <button id="lineLoginBtn">LINE 登入</button>
-        <div class="">
-          <h2 class="">會員登入</h2>
-          <p class="mb-2">帳號</p>
-          <input type="email" class="" />
-          <p class="mt-4 mb-2">密碼</p>
-          <input  type="password" class="" />
-          <a href="javascript:void(0)" class="block mt-2">忘記密碼</a>
-          <button class="">登入</button>
-        </div> -->
     </header>
     <ul class="flex justify-center sticky top-0 bg-white drop-shadow-lg">
       <li class="mr-9 nav-list ">
@@ -102,13 +85,13 @@ const menuList = ref([
         <a href="http://localhost:5173/bestseller" button @click="changePage('/Bestseller')" class="nav-link relative text-xl py-5 inline-block">Bestseller</a>
       </li>
       <li class="mr-9 nav-list">
-        <a href="#product" button @click="changePage('/Products')" class="nav-link relative text-xl py-5 inline-block">Product</a>
+        <a href="http://localhost:5173/products" button @click="changePage('/Products')" class="nav-link relative text-xl py-5 inline-block">Product</a>
       </li>
       <li class="mr-9 nav-list">
-        <a href="#product" class="nav-link relative text-xl py-5 inline-block">New Arrival</a>
+        <a href="http://localhost:5173/new" button @click="changePage('/New')" class="nav-link relative text-xl py-5 inline-block">New Arrival</a>
       </li>
       <li class="mr-9 nav-list">
-        <a href="#" class="nav-link relative text-xl py-5 inline-block">Blog</a>
+        <a href="http://localhost:5173/blog" button @click="changePage('/Blog')" class="nav-link relative text-xl py-5 inline-block">Travel photography </a>
       </li>
       <li class="nav-list">
         <a href="#" class="nav-link relative text-xl py-5 inline-block">Contact Us</a>
@@ -117,7 +100,7 @@ const menuList = ref([
     <slot/>
 
     <footer>
-      <div class=" flex bg-Bottom-pink w-full  h-5/5">
+      <div class=" flex bg-Bottom-pink w-full  h-5/5  text-white">
       <div class="ml-40 mt-8">
       <div class="tracking-wide font-bold mb-3">ABOUT</div><ul>
       <li><a href="" class="">品牌介紹</a></li>
@@ -141,7 +124,7 @@ const menuList = ref([
     <div class="mt-8 mb-2 tracking-wide font-bold">NEWS LETTER</div>
     <div class="news-letter">
     <form id="form-newsletter-signup" novalidate="novalidate">
-    <input class="input-newsletter mt-2" type="text" name="newsletter" placeholder="EMAIL" required="">
+    <input type="email" class="text-slate-950 mt-2" name="email" placeholder="EMAIL" required=""/>
     <button class="subscribe-mail-btn mx-4 flex-col " type="submit">SUBSCRIBE</button>
     </form>
     </div> 
@@ -153,71 +136,20 @@ const menuList = ref([
     <div class="tracking-wide self-start">© 薩摩亞商皇后國際有限公司台灣分公司｜統一編號 53678183</div>
     </div>
     </div>
-   
-
-</footer>
-
-    <!-- <footer>
-      <div class="footer__container">
-        <div class=" h-54  bg-Bottom-pink ">
-          <ul class="info-list">
-            <li class="flex justify-center mb-5">
-              <div class="info-list__item__icon">
-              </div>
-              <p class="info-list__item__detail mt-2 tracking-wider text-lg"> <span class="font-bold">官方服務時間</span></p>
-            </li>
-            <li class="flex justify-start mb-5">
-              <div class="info-list__item__icon">
-                <i class="fa-solid line px-1 mt-3"></i>
-              </div>
-              <i class="fa-brands fa-line "></i>
-              <p class="info-list__item__detail tracking-wider">官方Line: @borcelle</p>
-            </li>
-            <li class="flex justify-start mb-5">
-              <div class="info-list__item__icon">
-                <i class="fa-solid fa-envelope  px-2"></i>
-              </div>
-              <p class="info-list__item__detail">
-                信箱: clpes12061014ab@gmail.com
-              </p>
-            </li>
-            <li class="flex justify-start mb-5">
-              <div class="info-list__item__icon">
-              </div>
-              <i class="fa-solid fa-briefcase px-2 py-1"></i>
-              <p class="flex justify-start tracking-wider">工作日:週一到週五 09:00-18:00</p>
-            </li>
-            <div style="border-top:1px solid #FFFFFF"></div>
-            <li class="flex justify-start mb-5">
-              <div class="info-list__item__icon">
-                <i class="fa-solid fa-pen-nib px-2 "></i>
-              </div>
-              <p class="flex justify-start mb-5 tracking-wide">薩摩亞商皇后國際有限公司台灣分公司｜統編53678183</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </footer> -->
+    </footer>
     </div>
 
   <div>
-    <a-modal v-model:open="open" title= "會員登入" @ok="submit" class="text-center" >
+    {{ loginForm.username }}
+    {{ loginForm.password }}
+    <a-modal v-model:open="open" title= "會員登入" @ok="login" class="text-center" ok-text= "登入"  >
       <p class="text-base font-medium leading-[0px] pb-8 ">SIGN IN</p>
-      <label for="username" class ="flex">電子郵件</label>
-      <input v-model="message" placeholder=" E-mail" class="mx-5 rounded-lg mb-10" />
-      <!-- <input id="username" v-model="loginForm.username" type="E-mail" class="mx-5"> -->
-      <label for="username" class ="flex">密碼</label>
-      <input v-model="message" placeholder=" Password" class=" rounded-lg mx-20 mb-7"/>
-      <a class="btnLINELogin btn bg-line-green text-white flex rounded-lg w-100 text-lg cursor-pointer justify-center  flex-wrap hover:text-[rgba(0,0,0,0.3)]" href="https://reurl.cc/WNDRKZ" >
-      <i id="icon-line-login" class="url(https://static.tpx.tw/sff/meierq-v2/static/img/new-login-line.svg?v=2)  absolute w-6  h-6 left-2;"></i>
-      <i class="fa-brands fa-line mx-5 my-2 " style="color:#FFFFFF;"></i>
-      <span class="align-center mt-1 ">LINE 登入</span>
-      </a>
-      <a class="btnFBLogin btn bg-fb-blue  text-white flex rounded-lg w-100 text-lg cursor-pointer justify-center  flex-wrap mt-4 hover:text-[rgba(0,0,0,0.3)]" href="https://reurl.cc/Nl07d6">
-      <i class="fa-brands fa-facebook my-2 px-5 " style="color:#FFFFFF;"></i>
-      <span class="align-center mt-1 ">FACEBOOK 登入</span>
-      </a>
-      <!-- <input id="username" v-model="loginForm.password" type="Password" class="mx-5"> -->
+      <div class="flex">
+      <label for="username" class="mr-2 w-[100px] text-right">電子郵件</label>
+      <input v-model="loginForm.username" placeholder=" E-mail" class=" rounded-lg mb-10 mx-10" /></div>
+      <div class="flex">
+      <label for="username"  class="mr-2 w-[100px] text-right">密碼</label>
+      <input v-model="loginForm.password" placeholder=" Password" type="password" class=" rounded-lg mb-7 mx-10"/></div>
     </a-modal>
   </div>
 </template>
@@ -312,4 +244,5 @@ footer {
   justify-content: flex-start;
   margin-bottom: 20px;
   }
+
 </style>

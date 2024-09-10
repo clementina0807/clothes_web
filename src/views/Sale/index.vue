@@ -1,10 +1,12 @@
 <script setup>
+import { useRouter } from 'vue-router';
+const router = useRouter()
 </script>
 
 <template>
-  <div class="flex flex-col min-h-screen">
-    <header class="bg-headerColor bg-opacity-pink-300">
-     <img class="w-[200px] block mx-auto cursor-pointer " src="@/assets/images/b.gif" alt="" />
+<div class="min-h-screen flex flex-col">
+    <header class=" bg-opacity-pink-300 h-full">
+     <img button @click="router.push('/')" class="w-[200px] mx-auto cursor-pointer " src="@/assets/images/b.gif" alt="" />
       <ul class="flex justify-center sticky top-0 bg-white drop-shadow-lg">
       <li class="mr-9 nav-list ">
         <a href= "http://localhost:5173/sale" button @click="changePage('/sale')" class="nav-link relative text-xl py-5 inline-block">SUMMER SALE</a>
@@ -13,10 +15,10 @@
         <a href="http://localhost:5173/bestseller" button @click="changePage('/Bestseller')" class="nav-link relative text-xl py-5 inline-block">Bestseller</a>
       </li>
       <li class="mr-9 nav-list">
-        <a href="#product" button @click="changePage('/Products')" class="nav-link relative text-xl py-5 inline-block">Product</a>
+        <a href="http://localhost:5173/products" button @click="changePage('/Products')" class="nav-link relative text-xl py-5 inline-block">Product</a>
       </li>
       <li class="mr-9 nav-list">
-        <a href="#product" class="nav-link relative text-xl py-5 inline-block">New Arrival</a>
+        <a href="http://localhost:5173/new" button @click="changePage('/New')" class="nav-link relative text-xl py-5 inline-block">New Arrival</a>
       </li>
       <li class="mr-9 nav-list">
         <a href="#" class="nav-link relative text-xl py-5 inline-block">Blog</a>
@@ -25,424 +27,527 @@
         <a href="#" class="nav-link relative text-xl py-5 inline-block">Contact Us</a>
       </li>
     </ul>
-    <slot/>
-     </header></div>
+    <slot></slot>
+    </header>
 
-    <div class="container">
-    <nav class="sidebar"></nav>
-    <main class="content"></main>
+    <div class=" flex justify-end pt-4 mr-8 ">
+      <ol><li><select>
+      <option>排序</option>
+      <option >$由低到高</option>
+      <option>$由高到低</option>
+      <option>最新上架</option>
+       <option>最高人氣</option>
+    </select></li></ol></div>
+
+    <section id="product">
+    <div class="flex">
+    <div class="font-bold bg-background mr-10 ml-12 mt-12 underline underline-offset-2 leading-loose ">
+    <ul><a href=""> 人氣熱銷88折</a>
+    <li><a href=""></a></li>
+    <a href="" >春夏精選79折</a>
+    <li><a href=""></a></li>
+    <a href="" >全區三件5折</a>
+    <li><a href=""></a></li>
+    </ul>
     </div>
 
-     <main>
-      <div>
-            <ul class="product-menu__submenu collapse show" id="product_menu_0" data-parent="#product_collapsed" style="">
-                    <li>
-                        <a href="/all">
-                            <span class="tag-main-txt">所有商品</span>
-                        </a>
-                    </li>
-                                    <li>
-                        <a href="/zh-tw/tag/newin" style="">
-                            <span class="tag-main-txt">本週新品</span>
-                            <span class="tag-sub-txt">本週新品</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/tag/pleateddresslook" style="color:#A4B48E">
-                            <span class="tag-main-txt">壓褶洋搭配指南</span>
-                            <span class="tag-sub-txt">365天充滿仙女感</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/tag/cool" style="color:#bb9d79">
-                            <span class="tag-main-txt">牛奶絲.涼感專區</span>
-                            <span class="tag-sub-txt">牛奶絲.涼感專區</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/tag/bestsheertop" style="">
-                            <span class="tag-main-txt">夏日仙女透膚</span>
-                            <span class="tag-sub-txt">夏日仙女透膚</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/tag/matcheachother" style="">
-                            <span class="tag-main-txt">層次感疊搭單品</span>
-                            <span class="tag-sub-txt">層次感疊搭單品</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/tag/topdresses" style="">
-                            <span class="tag-main-txt">必收質感細肩洋裝</span>
-                            <span class="tag-sub-txt">必收質感細肩洋裝</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/tag/restock" style="">
-                            <span class="tag-main-txt">補貨到</span>
-                            <span class="tag-sub-txt">補貨到</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/tag/mit" style="">
-                            <span class="tag-main-txt">MIT 台灣製</span>
-                            <span class="tag-sub-txt">MIT 台灣製</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/tag/qqcollection" style="">
-                            <span class="tag-main-txt">膠原柔彈布料</span>
-                            <span class="tag-sub-txt">MIT</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a href="/zh-tw/tag/hotsale" style="">
-                            <span class="tag-main-txt">本月熱銷TOP10</span>
-                            <span class="tag-sub-txt">top10</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/onsale" style="">
-                            <span class="tag-main-txt">優惠活動</span>
-                            <span class="tag-sub-txt">優惠活動</span>
-                        </a>
-                    </li>
-            </ul>
-            <ul class="collapse product-menu__submenu" id="product_menu_1" data-parent="#product_collapsed">
-                    <li>
-                        <a href="/zh-tw/onsale">
-                            <span class="tag-main-txt">全部優惠商品</span>
-                        </a>
-                    </li>
-                                    <li>
-                        <a href="/zh-tw/tag/add0830" style="color:#910d0d">
-                            <span class="tag-main-txt">好評再加款！第二件2折</span>
-                            <span class="tag-sub-txt">限時至9/2 23:59</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/campaign/1Q100DA240626" style="color:#910d0d">
-                            <span class="tag-main-txt">夏日旅行聯名．現折100元</span>
-                            <span class="tag-sub-txt">夏日旅行聯名．現折100元</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/campaign/3Q198D0413" style="color:#910d0d">
-                            <span class="tag-main-txt">百搭襪．3雙198元</span>
-                            <span class="tag-sub-txt">百搭襪．3雙198元</span>
-                        </a>
-                    </li>
-            </ul>
-            <ul class="collapse product-menu__submenu" id="product_menu_2" data-parent="#product_collapsed">
-                                    <li>
-                        <a href="/zh-tw/category/shop/project/FAIRY" style="">
-                            <span class="tag-main-txt">FAIRY 仙女</span>
-                            <span class="tag-sub-txt">FAIRY 仙女</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/project/VINTAGE" style="">
-                            <span class="tag-main-txt">VINTAGE 復古</span>
-                            <span class="tag-sub-txt">VINTAGE 復古</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/project/MMM" style="">
-                            <span class="tag-main-txt">MMM 和我們一起生活</span>
-                            <span class="tag-sub-txt">MMM 和我們一起生活</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/project/CLASSIC" style="">
-                            <span class="tag-main-txt">CLASSIC 簡約知性</span>
-                            <span class="tag-sub-txt">CLASSIC 簡約知性</span>
-                        </a>
-                    </li>
-            </ul>
-            <ul class="collapse product-menu__submenu" id="product_menu_3" data-parent="#product_collapsed">
-                                    <li>
-                        <a href="/zh-tw/category/shop/collection/SPARKLE" style="">
-                            <span class="tag-main-txt">スパークル SPARKLE</span>
-                            <span class="tag-sub-txt">スパークル SPARKLE</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/collection/Dailyneeds" style="">
-                            <span class="tag-main-txt">日常美學提案 Dailyneeds</span>
-                            <span class="tag-sub-txt">日常美學提案 Dailyneeds</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/collection/formalcollection" style="">
-                            <span class="tag-main-txt">輕婚紗 Bridal collection</span>
-                            <span class="tag-sub-txt">輕婚紗 Bridal collection</span>
-                        </a>
-                    </li>
-            </ul>
-            <ul class="collapse product-menu__submenu" id="product_menu_4" data-parent="#product_collapsed">
-                                    <li>
-                        <a href="/zh-tw/category/shop/styleessentials/letmebeme" style="">
-                            <span class="tag-main-txt">letmebeme聯名企劃</span>
-                            <span class="tag-sub-txt">letmebeme聯名企劃</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/styleessentials/KlassiC" style="">
-                            <span class="tag-main-txt">KlassiC.聯名</span>
-                            <span class="tag-sub-txt">KlassiC.聯名</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/styleessentials/oiiv" style="">
-                            <span class="tag-main-txt">oiiv聯名企劃</span>
-                            <span class="tag-sub-txt">oiiv聯名企劃</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/styleessentials/spring" style="">
-                            <span class="tag-main-txt">spring春春聯名企劃</span>
-                            <span class="tag-sub-txt">spring春春聯名企劃</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/styleessentials/PINGPING" style="">
-                            <span class="tag-main-txt">PINGPING屏屏聯名企劃</span>
-                            <span class="tag-sub-txt">PINGPING屏屏聯名企劃</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/styleessentials/GREENPEA" style="">
-                            <span class="tag-main-txt">青豆GREENPEA聯名企劃</span>
-                            <span class="tag-sub-txt">青豆GREENPEA聯名企劃</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/styleessentials/nuhi" style="">
-                            <span class="tag-main-txt">nuhi聯名企劃</span>
-                            <span class="tag-sub-txt">nuhi聯名企劃</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/styleessentials/NAZO" style="">
-                            <span class="tag-main-txt">聖元NAZO聯名企劃</span>
-                            <span class="tag-sub-txt">聖元NAZO聯名企劃</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/styleessentials/ALICEBIUBROTHER" style="">
-                            <span class="tag-main-txt">ALICEBIUBROTHER聯名企劃</span>
-                            <span class="tag-sub-txt">ALICEBIUBROTHER聯名企劃</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/styleessentials/MONROE" style="">
-                            <span class="tag-main-txt">夢露MONROE聯名企劃</span>
-                            <span class="tag-sub-txt">夢露MONROE聯名企劃</span>
-                        </a>
-                    </li>
-            </ul>
-            <ul class="collapse product-menu__submenu" id="product_menu_5" data-parent="#product_collapsed">
-                                    <li>
-                        <a href="/zh-tw/category/shop/outerclothing/bra" style="">
-                            <span class="tag-main-txt">BRA/內衣</span>
-                            <span class="tag-sub-txt">BRA/內衣</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/outerclothing/vests" style="">
-                            <span class="tag-main-txt">背心</span>
-                            <span class="tag-sub-txt">背心</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/outerclothing/shorttop" style="">
-                            <span class="tag-main-txt">短袖上衣</span>
-                            <span class="tag-sub-txt">短袖上衣</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/outerclothing/top" style="">
-                            <span class="tag-main-txt">長袖上衣</span>
-                            <span class="tag-sub-txt">長袖上衣</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/outerclothing/shirt" style="">
-                            <span class="tag-main-txt">襯衫</span>
-                            <span class="tag-sub-txt">襯衫</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/outerclothing/dresses" style="">
-                            <span class="tag-main-txt">洋裝</span>
-                            <span class="tag-sub-txt">洋裝</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/outerclothing/knitwear" style="">
-                            <span class="tag-main-txt">針織毛衣</span>
-                            <span class="tag-sub-txt">針織毛衣</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/outerclothing/twopieceset" style="">
-                            <span class="tag-main-txt">套裝</span>
-                            <span class="tag-sub-txt">套裝</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/outerclothing/coat" style="">
-                            <span class="tag-main-txt">外套大衣</span>
-                            <span class="tag-sub-txt">外套大衣</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/outerclothing/tracksuit" style="">
-                            <span class="tag-main-txt">家居服</span>
-                            <span class="tag-sub-txt">家居服</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/outerclothing/bikini" style="">
-                            <span class="tag-main-txt">泳裝/比基尼</span>
-                            <span class="tag-sub-txt">泳裝/比基尼</span>
-                        </a>
-                    </li>
-            </ul>
-            <ul class="collapse product-menu__submenu" id="product_menu_6" data-parent="#product_collapsed">
-                                    <li>
-                        <a href="/zh-tw/category/shop/bottoms/skirts" style="">
-                            <span class="tag-main-txt">裙類</span>
-                            <span class="tag-sub-txt">裙類</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/bottoms/jumpsuit" style="">
-                            <span class="tag-main-txt">連身類</span>
-                            <span class="tag-sub-txt">連身類</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/bottoms/shorts" style="">
-                            <span class="tag-main-txt">短褲</span>
-                            <span class="tag-sub-txt">短褲</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/bottoms/pants" style="">
-                            <span class="tag-main-txt">長褲</span>
-                            <span class="tag-sub-txt">長褲</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/bottoms/jeans" style="">
-                            <span class="tag-main-txt">牛仔褲</span>
-                            <span class="tag-sub-txt">牛仔褲</span>
-                        </a>
-                    </li>
-            </ul>
-            <ul class="collapse product-menu__submenu" id="product_menu_7" data-parent="#product_collapsed">
-                                    <li>
-                        <a href="/zh-tw/category/shop/jewelry/earrings" style="">
-                            <span class="tag-main-txt">耳飾</span>
-                            <span class="tag-sub-txt">耳飾</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/jewelry/ring" style="">
-                            <span class="tag-main-txt">戒指</span>
-                            <span class="tag-sub-txt">戒指</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/jewelry/necklace" style="">
-                            <span class="tag-main-txt">項鍊</span>
-                            <span class="tag-sub-txt">項鍊</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/jewelry/hairaccessories" style="">
-                            <span class="tag-main-txt">髮飾</span>
-                            <span class="tag-sub-txt">髮飾</span>
-                        </a>
-                    </li>
-            </ul>
-            <ul class="collapse product-menu__submenu" id="product_menu_8" data-parent="#product_collapsed">
-                                    <li>
-                        <a href="/zh-tw/category/shop/accessories/bags" style="">
-                            <span class="tag-main-txt">包包</span>
-                            <span class="tag-sub-txt">包包</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/accessories/hats" style="">
-                            <span class="tag-main-txt">帽子</span>
-                            <span class="tag-sub-txt">帽子</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/accessories/glasses" style="">
-                            <span class="tag-main-txt">眼鏡</span>
-                            <span class="tag-sub-txt">眼鏡</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/accessories/scarves" style="">
-                            <span class="tag-main-txt">絲巾/圍巾</span>
-                            <span class="tag-sub-txt">絲巾/圍巾</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/accessories/皮帶" style="">
-                            <span class="tag-main-txt">皮帶</span>
-                            <span class="tag-sub-txt">皮帶</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/accessories/socks" style="">
-                            <span class="tag-main-txt">襪子</span>
-                            <span class="tag-sub-txt">襪子</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/accessories/shoes" style="">
-                            <span class="tag-main-txt">鞋</span>
-                            <span class="tag-sub-txt">鞋</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/zh-tw/category/shop/accessories/lifestyle" style="">
-                            <span class="tag-main-txt">品牌日常小物</span>
-                            <span class="tag-sub-txt">品牌日常小物</span>
-                        </a>
-                    </li>
-            </ul>
-    </div>
-     </main>
- 
+    <nav class="flex-1 flex justify-end mr-12 mt-5 mb-5 flex-wrap ">
+    <div class="relative w-[250px] h-[300px] px-2 mb-20 mt-2 item ">
+      <a href="">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" onmouseover="this.src='https://pics.meierq.com/meierq/ProductBasics/26fdc38d-ae44-4bb1-a277-14063968be52.jpg';" onmouseout="this.src='https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg';" >
 
-  <div>
- 
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      </a>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px] ">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+    </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductBasics/6bc571c3-baaa-4704-b93b-5bd0b822184c.jpg" onmouseover="this.src='https://pics.meierq.com/meierq/ProductBasics/b407bcfe-d37b-46bb-b230-80df5cc7ecce_w886_h1128.jpg';" onmouseout ="this.src='https://pics.meierq.com/meierq/ProductBasics/6bc571c3-baaa-4704-b93b-5bd0b822184c.jpg';" >
+    <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">透紗木耳邊V領外罩洋裝</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2 ">
+          <span class="line-through  text-sellout mr-2">NT.690</span>
+          <span> NT.600</span></p></div>
+
+    <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px] ">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+    </div>></div>
+     <div class="relative w-[250px] h-[300px] px-2 mb-20  mt-2">
+      <img src ="https://pics.meierq.com/meierq/ProductBasics/823e03eb-29fd-4186-892b-1b713f9974da.jpg" onmouseover="this.src='https://pics.meierq.com/meierq/ProductCovers/7558fb07-d020-4b10-9e68-3687d53c0a4b_w886_h1128.jpg class';" onmouseout="this.src='https://pics.meierq.com/meierq/ProductBasics/823e03eb-29fd-4186-892b-1b713f9974da.jpg';">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">立體紋理感蕾絲透肌短袖上衣</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 590</span></p></div>
+      
+    <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+    </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+      </div></div>
+      <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+     <div class="relative w-[250px] h-[300px]  px-2 mb-20 mt-2 ">
+      <img src ="https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg" class ="w-full h-full object-cover" alt="">
+      <div class="mb-2 right-9">
+      <p class="flex cursor-pointer justify-center mt-2">
+        <a href="">簡約彈性透肌背心</a></p> 
+        <ul class="flex cursor-pointer justify-center ">
+        <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1 ">
+          <span>S</span></p> 
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>M</span></p>
+          <li><a href=""></a></li>
+        <p class="mx-3 text-sm mt-1">
+          <span>L</span></p>
+          <li><a href=""></a></li></ul> 
+          <p class="flex justify-center text-sm  mt-2">
+          <span>NT. 390</span></p></div>
+      <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[160px]">
+     <button class=" bg-title-pink border-solid  mb-30 w-10 h-8 text-white ">sale</button>
+     </div></div>
+  </nav> </div></section>
   </div>
+  
+    <footer>
+      <div class=" flex bg-Bottom-pink w-full mt-16 h-5/5  text-white">
+      <div class="ml-40 mt-8 ">
+      <div class="tracking-wide font-bold mb-3">ABOUT</div><ul>
+      <li><a href="" class="">品牌介紹</a></li>
+      <li><a href="" class="">門市資訊</a></li>
+      <li><a href="">品牌合作</a></li>
+      <li><a href="/news">News</a></li></ul></div>
+      <div class="ml-40 mt-8 ">
+      <div class="  tracking-wide font-bold mb-3 ">HELP</div><ul>
+      <li><a href="">會員及購物問題</a></li>
+      <li><a href="">Privacy Policy</a></li>
+    </ul> </div>
+    <div class="ml-40 mt-8">
+    <div class=" tracking-wide font-bold mb-3 ">SOCIAL</div><ul>
+    <li><a href="https://www.instagram.com/meierq" target="_blank">Instagram</a></li>
+    <li><a href="https://www.facebook.com/meier.q" target="_blank">Facebook</a></li>
+    <li><a href="https://line.me/R/ti/p/@exv5945d" target="_blank">Line</a></li>
+    </ul>
+    </div>
+
+    <div class="mx-40">
+    <div class="mt-8 tracking-wide font-bold">NEWS LETTER</div>
+    <div class="news-letter">
+    <form id="form-newsletter-signup" novalidate="novalidate">
+    <input type="email" class="text-slate-950 mt-2" name="email" placeholder="EMAIL" required=""/>
+    <button class="subscribe-mail-btn mx-4 flex-col " type="submit">SUBSCRIBE</button>
+    </form>
+    </div> 
+  
+    <div class="tracking-wide font-bold mt-4 ">CUSTOMER SERVICE</div>
+    <p class="">service_tw@meierq.com</p>
+    <p class="mb-2"> Mon.~ Fri. 09:00-12:00 / 13:00-18:00</p>
+   
+    <div class="tracking-wide self-start">© 薩摩亞商皇后國際有限公司台灣分公司｜統一編號 53678183</div>
+    </div>
+    </div>
+   
+
+</footer>
 </template>
 
+
 <style scoped>
-
-header {
-  background-color: pink; 
-  height:100px;
+.item__images .hover {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .5s;
 }
 
-.container {
- flex:1; 
- display: flex; 
-}
-nav{
- background-color:purple;
+.nav-list:hover .nav-link::before {
+  width: 100%;
 }
 
-main {
- background-color: gold;
- flex: 1;
+.nav-link::before {
+  content: "";
+  display: block;
+  background-color: #f4a7b9;
+  width: 0%;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: all.3s;
+  margin-bottom: 10px;
+
 }
+
+
 </style>

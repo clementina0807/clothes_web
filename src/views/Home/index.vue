@@ -1,13 +1,11 @@
 <script setup>
-// import router from '@/router'
 import { ref } from 'vue'
-// import { useRouter } from 'vue-router'
 import { userApi } from '@/api/user'
 import { useUserStore } from '@/store/module/user'
 import ProductCard from '@/components/ProductCard.vue'
 import { useRouter, useRoute } from 'vue-router';
 const router = useRouter()
-router.push('');
+router.push('Home');
 
 const carouselImages=['https://pics.meierq.com/meierq/ProductBasics/2bccd7cd-7e41-432b-a31e-da10337d7003.jpg'
 ,'https://pics.meierq.com/meierq/BannerImage/94f8900f-ef0b-4710-85b6-a1ca92ee762a.jpg'
@@ -135,24 +133,6 @@ window.scrollTo({ top: 0, behavior: 'smooth' })
     </div>
     </div>
     </section>
-  <!-- 
-        <div class="mask"></div> -->
-  
-        <!-- <div class="col-4">
-          <div class="product__card"></div>
-        </div>
-        <div class="col-4">
-          <div class="product__card"></div>
-        </div>
-        <div class="col-4">
-          <div class="product__card"></div>
-        </div>
-        <div class="col-4">
-          <div class="product__card"></div>
-        </div>
-        <div class="col-4">
-          <div class="product__card"></div>
-        </div> -->
   <div class="">
     <img button @click="changePage('/advertise') " class="fixed bottom-5 right-5 w-[250px] mr-8 shadow-2xl cursor-pointer" src="@/assets/images/右下廣告.jpg" alt=""></div>
       <!-- <div><i class="fa-solid fa-x mark justify-items-end"></i></div> -->
@@ -162,6 +142,31 @@ window.scrollTo({ top: 0, behavior: 'smooth' })
     <img src ="@/assets/images/line.png" class="fixed drop-shadow-md bottom-12 " alt=""></a></div>
   </main>
 </layout>
+<!-- <div>
+<a-button type="primary" @click="openNotification">Open the notification box</a-button>
+<script lang="ts">
+import { notification } from 'ant-design-vue';
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const openNotification = () => {
+      notification.open({
+        message: 'Notification Title',
+        description:
+          'I will never close automatically. I will be close automatically. I will never close automatically.',
+        duration: 0,
+      });
+    };
+
+    return {
+      openNotification,
+    };
+  },
+});
+</script></div> -->
+
+
 </template>
 
 <style scoped>
