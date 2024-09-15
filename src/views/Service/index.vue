@@ -1,8 +1,7 @@
 <script setup></script>
 
 <template>
-  <div>new</div>
+  <div>service</div>
 </template>
 
 <style scoped></style>
-

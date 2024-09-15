@@ -1,9 +1,34 @@
 <script setup>
-import{ reactive, ref } from 'vue'
+import{ reactive, ref ,computed} from 'vue'
 import axios from 'axios'
 import { useRouter, useRoute } from 'vue-router';
+import { useUserStore } from '@/store/module/user'
+import { userApi } from '@/api/user'
+import { message } from 'ant-design-vue';
+import { useI18n } from 'vue-i18n'
+import { setLanguage } from "@/utils/localStorage";
+
+const userStore = useUserStore()
+const myToken = ref(userStore.token)
+
 const router = useRouter()
-router.push('');
+const changePage = (url) => {
+  router.push(url)
+}
+
+// 翻譯
+const { t, locale } = useI18n()
+const languageList = {
+  zh: 'zh_TW',
+  en: 'en_US',
+}
+const changeLanguage = () => { // 切換語言
+  const lang = locale.value === languageList.zh ? languageList.en : languageList.zh
+  console.log(lang);
+  locale.value = lang
+  setLanguage(lang)
+}
+
 
 const open = ref(false)
 const loginForm = reactive({
@@ -13,50 +38,57 @@ const loginForm = reactive({
 
 const showModal = (bool) => {
   open.value = bool
-} 
-
-const login = async() => {
-  const { data } = await axios.post('https://dummyjson.com/auth/login', {
-    username: loginForm.username,
-    password: loginForm.password,
-  })
-  const { token } = data
-  localStorage.setItem('TOKEN', token)
-  open.value = false
 }
 
-const menuList = ref([
+const login = async () => {
+  try {
+    const { data, code } = await userApi.login(loginForm.username, loginForm.password)
+    if (code === 200) {
+      const { token } = data
+      userStore.setToken(token) // 儲存 Token
+      myToken.value = token // 重新渲染畫面
+      message.success('登入成功')
+    }
+  } catch (err) {
+    message.error('使用者名稱或密碼錯誤')
+    console.log(err);
+  } finally {
+    showModal(false)
+  }
+}
+
+const menuList = computed(() => [
   {
     icon: 'fa-solid fa-magnifying-glass',
-    title: '商品查詢',
+    title: t('product_search'),
     action: () => changePage('/search')
   },
   {
     icon: 'fa-solid fa-cart-shopping',
-    title: '購物車',
+    title: t('shopping_cart'),
     action: () => changePage('/cart')
   },
   {
     icon: 'fa-solid fa-receipt',
-    title: '訂單查詢'
+    title: t('order_search')
   },
   {
     icon: 'fa-regular fa-pen-to-square',
-    title: '部落格'
+    title: t('blog')
   },
   {
     icon: 'fa-regular fa-user',
-    title: '會員中心',
-    action: () => showModal(true)
+    title: myToken.value ? t('member_center') : t('login'),
+    action: myToken.value ? () => changePage('/member') : () => showModal(true)
   },
   {
     icon: 'fa-solid fa-globe',
-    title: '翻譯',
-    // action: 
+    title: t('translation'),
+    action: () => changeLanguage()
   },
   {
     icon: 'fa-regular fa-moon',
-    title: '主題'
+    title: t('theme')
   }
 ])
 </script>
@@ -70,8 +102,6 @@ const menuList = ref([
           <i :class="item.icon" class="mb-1"></i>
           <span class="text-xs invisible group-hover:visible">{{ item.title }}</span>
         </li>
-        {{ loginForm.username }}
-        {{ loginForm.password }}
       </ul>
       <a href="http://localhost:5173/">
         <img class="w-[200px] block mx-auto cursor-pointer " src="@/assets/images/b.gif" alt="" /></a>
@@ -79,22 +109,22 @@ const menuList = ref([
     </header>
     <ul class="flex justify-center sticky top-0 bg-white drop-shadow-lg">
       <li class="mr-9 nav-list ">
-        <a href= "http://localhost:5173/sale" button @click="changePage('/sale')" class="nav-link relative text-xl py-5 inline-block">SUMMER SALE</a>
+        <a href= "http://localhost:5173/sale" button @click="changePage('/sale')" class="nav-link relative text-xl py-5 inline-block">{{ t('summer_sale') }}</a>
       </li>
       <li class="mr-9 nav-list">
-        <a href="http://localhost:5173/bestseller" button @click="changePage('/Bestseller')" class="nav-link relative text-xl py-5 inline-block">Bestseller</a>
+        <a href="http://localhost:5173/bestseller" button @click="changePage('/bestseller')" class="nav-link relative text-xl py-5 inline-block">{{ t('bestseller') }}</a>
       </li>
       <li class="mr-9 nav-list">
-        <a href="http://localhost:5173/products" button @click="changePage('/Products')" class="nav-link relative text-xl py-5 inline-block">Product</a>
+        <a href="http://localhost:5173/products" button @click="changePage('/Products')" class="nav-link relative text-xl py-5 inline-block">{{ t('in_stock') }}</a>
       </li>
       <li class="mr-9 nav-list">
-        <a href="http://localhost:5173/new" button @click="changePage('/New')" class="nav-link relative text-xl py-5 inline-block">New Arrival</a>
+        <a href="http://localhost:5173/new" button @click="changePage('/New')" class="nav-link relative text-xl py-5 inline-block">{{ t('new_arrival') }}</a>
       </li>
       <li class="mr-9 nav-list">
-        <a href="http://localhost:5173/blog" button @click="changePage('/Blog')" class="nav-link relative text-xl py-5 inline-block">Travel photography </a>
+        <a href="http://localhost:5173/photo" button @click="changePage('/Photo')" class="nav-link relative text-xl py-5 inline-block">{{ t('travel_photography') }} </a>
       </li>
       <li class="nav-list">
-        <a href="#" class="nav-link relative text-xl py-5 inline-block">Contact Us</a>
+        <a href="http://localhost:5173/service" button @click="changePage('/Service')" class="nav-link relative text-xl py-5 inline-block">{{ t('after_sales service')}}</a>
       </li>
     </ul>
     <slot/>
@@ -140,13 +170,11 @@ const menuList = ref([
     </div>
 
   <div>
-    {{ loginForm.username }}
-    {{ loginForm.password }}
     <a-modal v-model:open="open" title= "會員登入" @ok="login" class="text-center" ok-text= "登入"  >
       <p class="text-base font-medium leading-[0px] pb-8 ">SIGN IN</p>
       <div class="flex">
-      <label for="username" class="mr-2 w-[100px] text-right">電子郵件</label>
-      <input v-model="loginForm.username" placeholder=" E-mail" class=" rounded-lg mb-10 mx-10" /></div>
+      <label for="username" class="mr-2 w-[100px] text-right">使用者名稱</label>
+      <input v-model="loginForm.username" placeholder=" Username" class=" rounded-lg mb-10 mx-10" /></div>
       <div class="flex">
       <label for="username"  class="mr-2 w-[100px] text-right">密碼</label>
       <input v-model="loginForm.password" placeholder=" Password" type="password" class=" rounded-lg mb-7 mx-10"/></div>
