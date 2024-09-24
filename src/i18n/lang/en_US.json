@@ -12,5 +12,6 @@
   "blog" :"Blog",
   "order_search":"Order Search",
   "shopping_cart":"Shopping Cart",
-  "product_search":"product_search"
+  "product_search":"product_search",
+  "best recommend":"best recommend"
 }

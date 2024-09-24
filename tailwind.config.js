@@ -12,7 +12,11 @@ export default {
         "fb-blue":"#7DB9DE",
         "button" :"#dedede",
         "background":"#ffffff", 
-        "sellout":"#BDC0BA"
+        "sellout":"#BDC0BA",
+        "cart":"#F9F9E0",
+        "red":"B8001F",
+        "gray":"#BDC0BA",
+        "blue":"#4E4F97"
       },
     },
   },

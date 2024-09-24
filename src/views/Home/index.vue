@@ -4,10 +4,11 @@ import { useUserStore } from '@/store/module/user'
 import ProductCard from '@/components/ProductCard.vue'
 import { useRouter, useRoute } from 'vue-router';
 
+
 const router = useRouter()
 
 const carouselImages=['https://pics.meierq.com/meierq/ProductBasics/2bccd7cd-7e41-432b-a31e-da10337d7003.jpg'
-,'https://pics.meierq.com/meierq/BannerImage/94f8900f-ef0b-4710-85b6-a1ca92ee762a.jpg'
+,'https://pics.meierq.com/meierq/BannerImage/94f8900f-ef0b-4710-85b6-a1ca92ee762a.jpg','https://pics.meierq.com/meierq/ProductBasics/ca2a8048-47e5-4a0b-a287-331051cf339b.jpg'
 ]
 
 const recommendCard=['https://cdn.grail.bz/images/goods/d/kz520/kz520_v1.jpg','https://pics.meierq.com/meierq/ProductBasics/afb7bcd9-6fa2-4143-9f6e-03c08274402c.jpg','https://cdn.grail.bz/images/goods/d/fy016/fy016_v6.jpg','https://cdn.grail.bz/images/goods/d/nh54/nh54_v1.jpg','https://pics.meierq.com/meierq/ProductBasics/fc5fa713-b94e-4102-889b-abba800d9cdc.jpg','https://cdn.grail.bz/images/goods/d/dr682/dr682_v1.jpg','https://cdn.grail.bz/images/goods/d/tg735/tg735_v1.jpg','https://pics.meierq.com/meierq/ProductBasics/9a44d069-30d6-4ac7-bd4a-5d7f60201cdd.jpg']
@@ -25,9 +26,6 @@ const scrollUp = () =>{
 
 <template>
   <main>
-    <section id="banner">
-      <div class="banner-container"></div>
-    </section>
     <div class="hidden-xs hidden-sm" id="event_slider_scroll"></div>
     <div id="event_tab">
       <span>E</span>
@@ -36,86 +34,87 @@ const scrollUp = () =>{
       <span>N</span>
       <span>T</span>
     </div>
-    <div id="event_slider_content"></div>
-    <div class="event_content"></div>
-    <a href="https://www.queenshop.com.tw/zh-TW/News?ID=a07c5353-e298-49cc-9493-d17e3831a24a&amp;IDType=3">
-      <img src="https://www.queenshop.com.tw/Upload/E88ED8AA-0BE9-44B5-8F13-F084FD496230/zh-TW/20240731160934026.jpg">
-      <p></p>
-    </a>
-
     <a-carousel autoplay>
       <div v-for="(image, idx) in carouselImages" :key="idx" class='h-96'>
         <img class="w-full h-96 object-cover" :src="image" alt="image">
       </div>
     </a-carousel>
-
-    <img class="bar" src="@/assets/images/打折bar-1.png" alt="">
-    <div>
-      <img src="https://photo.queenshop.com.tw/qs/333/home/2024/0820/s1.jpg">
-      <img src="https://photo.queenshop.com.tw/qs/333/home/2024/0820/s3.gif">
-    </div>
-
-    <section class="block" style="position: relative;">
-      <a href="https://www.queenshop.com.tw/zh-TW/QueenShop/ProductList?KeyWord=01098433,01098428,01086755,01098415,03021477,01025390&amp;AdSource=QMB_QS_240820-02"
-        style="">
-        <figure class="">
-          <img class="lazy" src="https://photo.queenshop.com.tw/qs/333/home/2024/0820/s2.jpg" alt="">
-        </figure>
-        <a href="https://www.queenshop.com.tw/zh-TW/QueenShop/ProductList?KeyWord=01098433,01098428,01086755,01098415,03021477,01025390&amp;AdSource=QMB_QS_240820-02"
-          style="position: absolute; top:0%; width:25%; left:25%; ">
-          <figure class="">
-            <img class="lazy" src="https://photo.queenshop.com.tw/qs/333/home/2024/0820/s2-1.jpg" alt="">
-          </figure>
-        </a>
-      </a>
-      <a href="https://www.queenshop.com.tw/zh-TW/QueenShop/ProductList?KeyWord=01098433,01098428,01086755,01098415,03021477,01025390&amp;AdSource=QMB_QS_240820-02"
-        style="position: absolute;top:0%; width:25%;left:75.2%;">
-        <figure class="delay25 in-view">
-          <img class="lazy" src="https://photo.queenshop.com.tw/qs/333/home/2024/0820/s2-2.jpg" alt="">
-        </figure>
-      </a>
-    </section>
-
     <section id="product">
-      <h2 class=" text-center bg-white drop-shadow-md h-[70px] leading-[70px] text-2xl text-title-pink">BEST RECOMMEND
+      <h2 class="text-center bg-white drop-shadow-md h-[70px] leading-[70px] text-2xl text-title-pink "> BEST RECOMMEND
       </h2>
       <div class="container mx-auto">
         <div class="flex -mx-2 flex-wrap">
           <div class="w-1/4 px-2 mb-4 ">
-            <product-card :image="recommendCard[0]" ></product-card>
+            <product-card :id="1" :image="recommendCard[0]"></product-card>
           </div>
           <div class="w-1/4 px-2 mb-4 ">
-            <product-card :image="recommendCard[1]"></product-card>
+            <product-card :id="2" :image="recommendCard[1]"></product-card>
           </div>
           <div class="w-1/4 px-2 mb-4 ">
-            <product-card :image="recommendCard[2]"></product-card>
+            <product-card :id="3" :image="recommendCard[2]"></product-card>
           </div>
           <div class="w-1/4 px-2 mb-4 ">
-            <product-card :image="recommendCard[3]"></product-card>
+            <product-card :id="4" :image="recommendCard[3]"></product-card>
           </div>
           <div class="w-1/4 px-2 mb-4 ">
-            <product-card :image="recommendCard[4]"></product-card>
+            <product-card :id="5" :image="recommendCard[4]"></product-card>
           </div>
           <div class="w-1/4 px-2 mb-4 ">
-            <product-card :image="recommendCard[5]"></product-card>
+            <product-card :id="6" :image="recommendCard[5]"></product-card>
           </div>
           <div class="w-1/4 px-2 mb-4 ">
-            <product-card :image="recommendCard[6]"></product-card>
+            <product-card :id="7" :image="recommendCard[6]"></product-card>
           </div>
           <div class="w-1/4 px-2 mb-4 ">
-            <product-card :image="recommendCard[7]"></product-card>
+            <product-card :id="8" :image="recommendCard[7]"></product-card>
           </div>
-          <figure class="flex justify-center my-8">
-            <img class="w-1/5 justify-items-center"
-              src="https://pics.meierq.com/meierq/ProductBasics/6a5ff197-5e40-429e-9145-d657521df2b3.jpg" alt="">
-            <img class="w-1/5 justify-items-center"
-              src="https://pics.meierq.com/meierq/ProductBasics/3af4d929-0ac8-4913-9e8e-be672e35f1ed.jpg" alt="">
-            <img class="w-1/5 justify-items-center"
-              src="https://pics.meierq.com/meierq/ProductBasics/970f0c00-a3f7-4e00-bd72-e9895d9d6937.jpg" alt="">
-            <img class="w-1/5 justify-items-center"
-              src="https://pics.meierq.com/meierq/ProductBasics/3e475708-cc17-41f9-917d-375f0e3d2976.jpg" alt="">
-          </figure>
         </div>
+        <h2 class="text-center bg-white drop-shadow-md h-[70px] leading-[70px] text-2xl text-title-pink">
+          My Blog
+        </h2>
+        <div class="flex bg-white drop-shadow-xl">
+          <div class="w-1/3">
+            <div class="drop-shadow-xl">
+              <img src="https://www.queenshop.com.tw/assets/images/blog/24083001/s5.jpg" class="w-[500px] h-[300px] object-cover drop-shadow-lg" alt="">
+              <!-- <h3 class="font-bold pt-2 mx-2 text-lg">我得心情</h3> -->
+              <i class="fa-solid fa-calendar-days mt-4 mx-4"></i> 
+              <span id="date" class="font-bold">2024 / Aug / 22 </span>
+              <p class="italic mx-4">初秋日系多層次穿搭示範 ...</p>
+              <button type="button" class="bg-[#eee1e1] rounded-xl px-2 py-1 text-sm ml-96 mb-4" @click="changePage('/blog')">read more</button>
+            </div>
+            
+          </div>
+          <div class="w-1/3">
+            <div class="drop-shadow-xl">
+              <img src="https://www.queenshop.com.tw/assets/images/blog/24080901/a.jpg" class="w-[500px] h-[300px] object-cover drop-shadow-lg" alt="">
+              <!-- <h3 class="font-bold pt-2 mx-2 text-lg">我得心情</h3> -->
+              <i class="fa-solid fa-calendar-days mt-4 mx-4"></i> 
+              <span id="date" class="font-bold">2024 / Sep / 15 </span>
+              <p class="italic mx-4"> 7種牛仔短褲穿搭攻略...</p>
+              <button type="button" class="bg-[#eee1e1] rounded-xl px-2 py-1 text-sm ml-96 mb-4" @click="changePage('/blog-1')"  >read more</button>
+            </div>
+          </div>
+          <div class="w-1/3">
+            <div class="drop-shadow-xl">
+              <img src="https://www.queenshop.com.tw/assets/images/blog/24083002/s6.jpg" class="w-[500px] h-[300px] object-cover drop-shadow-lg" alt="">
+              <!-- <h3 class="font-bold pt-2 mx-2 text-lg">我得心情</h3> -->
+              <i class="fa-solid fa-calendar-days mt-4 mx-4"></i> 
+              <span id="date" class="font-bold">2024 / Nov / 8 </span> 
+              <p class="italic mx-4">【日本佐賀 ‧ 旅拍】佐賀打卡必去咖啡廳...</p>
+              <button type="button" class="bg-[#eee1e1] rounded-xl px-2 py-1 text-sm ml-96 mb-4"  @click="changePage('/blog-2')">read more</button>
+            </div>
+          </div>
+        </div>
+        <figure class="flex justify-center my-8">
+          <img class="w-1/5 justify-items-center"
+            src="https://pics.meierq.com/meierq/ProductBasics/6a5ff197-5e40-429e-9145-d657521df2b3.jpg" alt="">
+          <img class="w-1/5 justify-items-center"
+            src="https://pics.meierq.com/meierq/ProductBasics/3af4d929-0ac8-4913-9e8e-be672e35f1ed.jpg" alt="">
+          <img class="w-1/5 justify-items-center"
+            src="https://pics.meierq.com/meierq/ProductBasics/970f0c00-a3f7-4e00-bd72-e9895d9d6937.jpg" alt="">
+          <img class="w-1/5 justify-items-center"
+            src="https://pics.meierq.com/meierq/ProductBasics/3e475708-cc17-41f9-917d-375f0e3d2976.jpg" alt="">
+        </figure>
       </div>
     </section>
     <div class="">
@@ -129,29 +128,7 @@ const scrollUp = () =>{
         <img src="@/assets/images/line.png" class="fixed drop-shadow-md bottom-12 " alt=""></a>
     </div>
   </main>
-  <!-- <div>
-<a-button type="primary" @click="openNotification">Open the notification box</a-button>
-<script lang="ts">
-import { notification } from 'ant-design-vue';
-import { defineComponent } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const openNotification = () => {
-      notification.open({
-        message: 'Notification Title',
-        description:
-          'I will never close automatically. I will be close automatically. I will never close automatically.',
-        duration: 0,
-      });
-    };
-
-    return {
-      openNotification,
-    };
-  },
-});
-</script></div> -->
 
 
 </template>
@@ -188,7 +165,7 @@ export default defineComponent({
 }
 
 #banner {
-  height: 800px;
+  height: 500px;
   background-image: url("../../assets/images/banner.jpg");
   background-position: top center;
   background-size: cover;

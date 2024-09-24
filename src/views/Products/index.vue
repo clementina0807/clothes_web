@@ -43,9 +43,9 @@ onMounted(() => getProducts())
 
       <nav class="flex-1 flex flex-wrap justify-end mt-5 mb-5 -mx-2">
         <div v-for="item in products" :key="item.id"
-          class="border border-solid border-purple-500 w-[250px] mb-20 mt-2 px-2">
-          <sale-card @card-click="changePage(`/product/${item.id}`)" :cover="item.cover" :image="item.image"
-            :name="item.name" :price="item.price" />
+          class="border border-solid border-purple-500 w-[250px] mb-20 mt-2 px-2"> 
+          <sale-card @card-click="changePage( `/product/${item.id} `)" :cover="item.cover" :image ="item.image"
+          :name="item.name" :price="item.price" />
         </div>
       </nav>
     </div>

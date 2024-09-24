@@ -163,7 +163,7 @@ const menuList = computed(() => [
     <p class="">service_tw@meierq.com</p>
     <p class="mb-2"> Mon.~ Fri. 09:00-12:00 / 13:00-18:00</p>
    
-    <div class="tracking-wide self-start">© 薩摩亞商皇后國際有限公司台灣分公司｜統一編號 53678183</div>
+    <div class="tracking-wide -ml-[732px] ">© 薩摩亞商皇后國際有限公司台灣分公司｜統一編號 53678183</div>
     </div>
     </div>
     </footer>

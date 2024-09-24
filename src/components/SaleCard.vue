@@ -22,7 +22,7 @@ const handleClick = () => {
 </script>
 <template>
   <div @click="handleClick" class="relative flex flex-col items-center">
-    <div :class="[`bg-[url('${cover}')]`, `hover:bg-[url('${image}')]`]" class="w-full h-[300px] bg-cover bg-center">
+    <div class="w-full h-[300px] bg-cover bg-center" :class="[`bg-[url('${cover}')]`, `hover:bg-[url('${image}')]`]">
     </div>
     <div class="mb-2 flex flex-col items-center">
       <p class="flex cursor-pointer justify-center mt-2">
