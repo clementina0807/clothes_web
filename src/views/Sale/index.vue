@@ -5,6 +5,7 @@ import { productApi } from '@/api/product'
 import { useRouter } from 'vue-router';
 const router = useRouter()
 
+
 const changePage = (url) => {
   router.push(url)
 }
@@ -15,6 +16,7 @@ const filteredProducts = ref([])
 const getProducts = async() => {
   const { data } = await productApi.getProducts()
   products.value = data
+  console.log(data)
   filteredProducts.value = data
 }
 const getCategory = (category) => {

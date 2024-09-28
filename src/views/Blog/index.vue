@@ -5,24 +5,37 @@ const router = useRouter()
 </script>
 
 <template>
+    
+    <div class="flex">
+    <img src="https://www.queenshop.com.tw/assets/images/blog/24083001/a.jpg" class="w-[40%] h-[40%] mx-48 mt-10" alt="">
+      <div class="shadow-md">
+    <nav class=" flex-col mt-5 mb-5">
+    <img src="https://www.queenshop.com.tw/assets/images/blog/24080901/a.jpg" class="w-60 mt-20 mb-4 cursor-pointer" alt="">
+        <span class="number ">1</span>
+        <p class="mt-6 mb-8">2024.09.15 </p>
+         <h2 class="mb-4">7種牛仔短褲穿搭攻略</h2>
+     <img src="https://www.queenshop.com.tw/assets/images/blog/24083002/a.jpg" class="w-60 mb-4 cursor-pointer" alt="">
+        <span class="number">2</span>
+        <p class="mt-6 mb-8">2024.11.8 </p>
+        【日本佐賀 ‧ 旅拍】佐賀打卡必去<br>
+        咖啡廳&道地美食！
+    </nav></div></div>
 
-<section id="product">
-<div class="mx-80 w-[40%] flex-col">
-<h1 class="text-xl p-8 font-semibold  ">BLOG | 初秋日系多層次穿搭示範   </h1>
-<div class=" mx-6 flex">
-<i class="fa-solid fa-tag  mx-4"></i>
-<h2 class="italic  ">2024.08.22 </h2></div>
-<div class="hori-line mb-4  "></div> </div>                                    
-<p class="mx-4 mx-80 ">
-隨著初秋的到來，是時候讓妳的穿搭也換上新裝了！  <br>
-今天!我們特別為妳準備了5套日系層次穿搭， <br>
-層次穿搭元素重點有透膚和網紗，  <br>
-今天就教大家如何用這兩種元素，  <br>
-穿出日系感又有層次感～  <br>
-以下5套示範給你看!!
-</p>
+    <div class="mx-80 w-[40%] flex-col mt-4">
+    <h1 class="text-xl  font-semibold  ">BLOG | 初秋日系多層次穿搭示範   </h1>
+    <div class="flex mt-4">
+    <i class="fa-solid fa-tag ml-20 mt-1"></i>
+    <h2 class="italic  mx-6  ">2024.08.22 </h2></div>
+    <div class="hori-line mt-4 mb-4 -mx-10"></div> </div>                                    
+    <p class="mx-4 mx-80 ">
+    隨著初秋的到來，是時候讓妳的穿搭也換上新裝了！  <br>
+    今天!我們特別為妳準備了5套日系層次穿搭， <br>
+    層次穿搭元素重點有透膚和網紗，  <br>
+    今天就教大家如何用這兩種元素，  <br>
+    穿出日系感又有層次感～  <br>
+    以下5套示範給你看!!
+    </p>
 <div class="mx-56 mt-10 w-[40%] ">
-<img src="https://www.queenshop.com.tw/assets/images/blog/24083001/a.jpg" class="mb-4" alt="">
 <h1 class="font-extrabold text-lg text-gray mx-4 mb-4">LOOK 1 /無彩色日系層次風</h1>
 <p class="mb-4 mx-4 tracking-wide leading-loose">
 緹花褲是一年四季都百搭實穿的單品，而秋日我們可以進行更多層次的搭配～網狀蕾絲上衣單穿就別致有質感，我們裡面再襯上金蔥高領上衣，隱約低調的透著光芒更顯高級～最後可以再搭配一件罩衫洋裝，為全身造型增添一絲飄逸感！</p>
@@ -53,20 +66,7 @@ const router = useRouter()
 讓每一次出門都成為妳獨特風格的展現。 
 快來挑選妳最喜歡的搭配，讓這個秋季充滿無限可能吧！ <br></p></div>
  
-<nav class="flex-1 flex flex-wrap justify-end mt-5 mb-5 -mx8">
 
-<img src="https://www.queenshop.com.tw/assets/images/blog/24080901/a.jpg" class="w-[20%] h-[20%] mx-2" alt=""><a href="" >
-    <span class="number ">1</span>
-    <p class="mt-6 mb-10">2024.09.15 </p>
-    7種牛仔短褲穿搭攻略
-    </a>
-<img src="https://www.queenshop.com.tw/assets/images/blog/24083002/a.jpg" class="w-[20%] mx-2" alt=""><a href="" >
-    <span class="number">2</span>
-    <p class="mt-6 mb-10">2024.11.8 </p>
-    【日本佐賀 ‧ 旅拍】佐賀打卡必去咖啡廳&道地美食！
-    </a>    
-</nav>
- </section>
 
 
 
@@ -75,7 +75,7 @@ const router = useRouter()
 
 <style scoped>
 .hori-line {
-    width: 50%;
+    width: 70%;
     height: 2px;
     border-top: solid #000000 1px;
 }

@@ -15,6 +15,9 @@ const router = useRouter()
 const changePage = (url) => {
   router.push(url)
 }
+const scrollUp = () =>{
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 
 // 翻譯
 const { t, locale } = useI18n()
@@ -160,7 +163,7 @@ const menuList = computed(() => [
     </div> 
   
     <div class="tracking-wide font-bold mt-4 ">CUSTOMER SERVICE</div>
-    <p class="">service_tw@meierq.com</p>
+    <p class="">clpes12061014ab@gmail.com</p>
     <p class="mb-2"> Mon.~ Fri. 09:00-12:00 / 13:00-18:00</p>
    
     <div class="tracking-wide -ml-[732px] ">© 薩摩亞商皇后國際有限公司台灣分公司｜統一編號 53678183</div>
@@ -179,6 +182,11 @@ const menuList = computed(() => [
       <label for="username"  class="mr-2 w-[100px] text-right">密碼</label>
       <input v-model="loginForm.password" placeholder=" Password" type="password" class=" rounded-lg mb-7 mx-10"/></div>
     </a-modal>
+     <div @click="scrollUp" class="fixed bottom-[30px] text-3xl right-[15px] drop-shadow-lg ">
+      <i class="fa-solid fa-circle-chevron-up cursor-pointer " style="color: #ffffff"></i>
+      <a line="" idx="" href="https://line.me/ti/p/~@hsia.vv">
+        <img src="@/assets/images/line.png" class="fixed drop-shadow-md bottom-12 " alt=""></a>
+    </div>
   </div>
 </template>
 

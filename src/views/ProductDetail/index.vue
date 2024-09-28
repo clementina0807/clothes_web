@@ -1,14 +1,30 @@
 <script setup>
+import { useRouter, useRoute } from 'vue-router';
 const baseUrl =
   'https://raw.githubusercontent.com/vueComponent/ant-design-vue/main/components/carousel/demo/';
 const getImgUrl = i => {
   return `${baseUrl}abstract0${i + 1}.jpg`;
 };
+
+const router = useRouter()
+const changePage = (url) => {
+  router.push(url)
+}
+import { ref } from 'vue';
+const open = ref(false);
+const showModal = () => {
+  open.value = true;
+};
+const handleOk = e => {
+  console.log(e);
+  open.value = false;
+};
+
 </script>
 
 <template>
   <div class="flex">
-    <div class="position-relative w-2/4 mb-40 mt-10 ml-12">
+    <div class="position-relative w-2/4 mb-40 mt-20 ">
       <a-carousel arrows dots-class="slick-dots slick-thumb">
         <template #customPaging="props">
           <a>
@@ -19,41 +35,43 @@ const getImgUrl = i => {
           <img :src="getImgUrl(item - 1)" />
         </div>
       </a-carousel>
-     
-      
+
     </div>
-     
-      <div class=" leading-loose flex ">
-      <ul class="text-xl font-bold  mt-20 "> 簡約彈性透肌背心</ul>
-      <span  class="text-2xl hover:text-themeRed cursor-pointer mt-12 ml-44">
-        <div><i class="fa-regular fa-heart "></i></div></span>
+    <div class=" leading-loose">
+      <ul class="text-xl font-bold  mt-20 flex  "> 簡約彈性透肌背心
+      <span class="text-2xl hover:text-themeRed cursor-pointer  ml-44 ">
+      <i class="fa-regular fa-heart "></i></span></ul>
+      <div class= "text-xl mt-10 mx-80 font-bold">
+      <ul><li>NT.575</li></ul></div>
+      <div class= "text-xl  font-bold">
+      <ul class="flex cursor-pointer  -mt-6 mb-10 ">
+        <li class="selected"></li>
+          <li class=" size text-lg mr-6">S</li>
+          <li class=" size text-lg mr-6 ">M</li>
+          <li class=" size text-lg mr-1 ">L</li></ul>
 
-       <div class= "text-xl my-20 -mx-16 font-bold">
-        <ul><li><a href="">NT. 575</a></li></ul>
-        </div>
-        
-        
-     <ul class="flex cursor-pointer mt-40 -mx-72 ">
-      <li class="selected"></li>
-        <li class=" size text-lg mr-6">S</li>
-        <li class=" size text-lg mr-6">M</li>
-        <li class=" size text-lg mr-1">L</li></ul>
-     </div>
+          <div class=" flex ">
+            <input type='button' value='-' class='Subtraction cursor-pointer  ' field='' />
+            <input type='text' name='quantity' value='1' class='qty' />
+            <input type='button' value='+' class='Increase cursor-pointer ' field='' /></div>
+        </div></div></div> 
 
-     <div class="mt-60 flex ">
-        <input type='button' value='-' class='Subtraction  cursor-pointer ' field='' />
-        <input type='text' name='quantity' value='1' class='qty' />
-        <input type='button' value='+' class='Increase cursor-pointer' field='' /> 
-   </div>
-   
-    <div class="pt-80 -mx-[450px] ">
-    <button class="choosebuy mr-8  w-36 h-12">
-      <span>立即結帳</span></button>
-    <button class="addcart mr-8 w-36  h-12 text-white">
-      <span>加入購物車</span></button></div></div> 
-    </template>
+          <div class="flex justify-center -mt-60 mb-40 ">
+          <button class="choosebuy mr-4  w-36 h-12" @click="changePage('/cart')">
+          <span>立即結帳</span></button>
+          <button class="addcart w-36  h-12 text-white">
+          <a-button type="black text-white " @click="showModal">加入購物車</a-button>
+          <a-modal v-model:open="open" class="" @ok="handleOk">
+            <p class="mx-40 ">已加入購物車</p>
+          </a-modal></button></div>
+        </template>
+
 
 <style scoped>
+
+.added-text {
+    display: none;
+}
 
 .choosebuy {
   border: 1px solid #323232;
