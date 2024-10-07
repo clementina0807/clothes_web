@@ -1,4 +1,5 @@
 <script setup>
+import { placements } from 'ant-design-vue/es/vc-tour/placements';
 import { useRouter, useRoute } from 'vue-router';
 
 const router = useRouter()
@@ -45,17 +46,17 @@ const changePage = (url) => {
         <ul></ul>
 
       <div class="mx-96">
-      <a-select ref="select" v-model:value="value1 " style="width: 120px " @focus="focus" @change="handleChange" class="">  
-      <a-select-option value="">1</a-select-option>
-      <a-select-option value="">2</a-select-option>
-      <a-select-option value="">3</a-select-option>
-      <a-select-option value="">4</a-select-option>
-      <a-select-option value="">5</a-select-option>
-      <a-select-option value="">6</a-select-option>
-      <a-select-option value="">7</a-select-option>
-      <a-select-option value="">8</a-select-option>
-      <a-select-option value="">9</a-select-option>
-      <a-select-option value="">10</a-select-option>
+      <a-select v-model:value="placements" style="width: 120px" :dropdown-match-select-width="false" :placement="placement">
+      <a-select-option value="topLeft">1</a-select-option>
+      <a-select-option value="topLeft">2</a-select-option>
+      <a-select-option value="topLeft">3</a-select-option>
+      <a-select-option value="topLeft">4</a-select-option>
+      <a-select-option value="topLeft">5</a-select-option>
+      <a-select-option value="topLeft">6</a-select-option>
+      <a-select-option value="topLeft">7</a-select-option>
+      <a-select-option value="topLeft">8</a-select-option>
+      <a-select-option value="topLeft">9</a-select-option>
+      <a-select-option value="topLeft">10</a-select-option>
     </a-select></div></div></div>
     <div class="flex ">
       <div class="flex mx-40 -mt-10"></div></div></div>

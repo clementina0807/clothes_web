@@ -3,22 +3,20 @@ import { ref, onMounted } from 'vue'
 import SaleCard from '@/components/SaleCard.vue'
 import { productApi } from '@/api/product'
 import { useRouter } from 'vue-router';
+import { useProductStore } from '@/store/module/product'
+
+// 跳頁
 const router = useRouter()
-
-
 const changePage = (url) => {
   router.push(url)
 }
 
-const products = ref([])
-const filteredProducts = ref([])
+// 去store拿products
+const productStore = useProductStore()
+const products = ref(productStore.saleProducts)
+const filteredProducts = ref(productStore.saleProducts)
 
-const getProducts = async() => {
-  const { data } = await productApi.getProducts()
-  products.value = data
-  console.log(data)
-  filteredProducts.value = data
-}
+// 分類
 const getCategory = (category) => {
   if (category === 'all') {
     filteredProducts.value = products.value
@@ -28,6 +26,7 @@ const getCategory = (category) => {
   filteredProducts.value = newProducts
 }
 
+// 排序
 const sortProducts = (event) => {
   const sortType = event.target.value
   switch(sortType) {
@@ -46,8 +45,6 @@ const sortProducts = (event) => {
     default:
   }
 }
-
-onMounted(() => getProducts())
 </script>
 
 <template>
@@ -70,11 +67,16 @@ onMounted(() => getProducts())
         </ul>
       </div>
 
-      <nav class="flex-1 flex flex-wrap justify-end mt-5 mb-5 -mx-2">
+      <nav class="flex-1 flex flex-wrap justify-start mt-5 mb-5 -mx-2">
         <div v-for="item in filteredProducts" :key="item.id"
-          class="border border-solid border-purple-500 w-[250px] mb-10 mt-2 px-2">
-          <sale-card @card-click="changePage(`/product/${item.id}`)" :cover="item.cover" :image="item.image"
-            :name="item.name" :price="item.price" />
+          class="w-1/5 mb-10 mt-2 px-2">
+          <sale-card
+            @card-click="changePage(`/product/${item.id}?category=saleProducts`)"
+            :cover="item.cover"
+            :image="item.images[0]"
+            :name="item.name"
+            :price="item.price"
+          />
         </div>
       </nav>
     </div>

@@ -2,6 +2,9 @@
 import { useRouter, useRoute } from 'vue-router';
 
 const router = useRouter()
+const changePage = (url) => {
+  router.push(url)
+}
 
 
 </script>

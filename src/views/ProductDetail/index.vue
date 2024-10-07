@@ -1,16 +1,29 @@
 <script setup>
 import { useRouter, useRoute } from 'vue-router';
+import { computed, ref } from 'vue';
+import { useProductStore } from '@/store/module/product'
+
+
+const router = useRouter()
+const changePage = (url) => {
+  router.push(url)
+}
+const route = useRoute()
+const routeId = computed(() => Number(route.params.id)) // 字串
+const category = computed(() => route.query.category)
+const productStore = useProductStore()
+const product = computed(() => productStore[category.value].find(item => item.id === routeId.value))
+const activeImage = ref(product.value.images?.[0])
+const changeImage = (image) => {
+  activeImage.value = image
+}
+
 const baseUrl =
   'https://raw.githubusercontent.com/vueComponent/ant-design-vue/main/components/carousel/demo/';
 const getImgUrl = i => {
   return `${baseUrl}abstract0${i + 1}.jpg`;
 };
 
-const router = useRouter()
-const changePage = (url) => {
-  router.push(url)
-}
-import { ref } from 'vue';
 const open = ref(false);
 const showModal = () => {
   open.value = true;
@@ -20,58 +33,88 @@ const handleOk = e => {
   open.value = false;
 };
 
+const sizeList = ref([
+  {
+    label: 'S',
+    value: 'S'
+  },
+  {
+    label: 'M',
+    value: 'M'
+  },
+  {
+    label: 'L',
+    value: 'L'
+  }
+])
+
+const chosenSize = ref(sizeList.value[0].value)
+const setChosenSize = (size) => {
+  chosenSize.value = size
+}
+
+// 數量
+const amount = ref(1)
+const plus = () => {
+  amount.value += 1
+}
+const minus = () => {
+  if (amount.value > 1) {
+    amount.value -= 1
+  }
+}
+console.log(chosenSize.value);
+
 </script>
-
 <template>
-  <div class="flex">
-    <div class="position-relative w-2/4 mb-40 mt-20 ">
-      <a-carousel arrows dots-class="slick-dots slick-thumb">
-        <template #customPaging="props">
-          <a>
-            <img :src="getImgUrl(props.i)" />
-          </a>
-        </template>
-        <div v-for="item in 4" :key="item">
-          <img :src="getImgUrl(item - 1)" />
+  <div class="flex container mx-auto py-5">
+    <div class="w-1/2">
+      <div>
+        <img class="w-full h-[300px] object-contain mb-3" :src="activeImage" alt="">
+        <div class="flex -mx-3">
+          <div v-for="(image) in product.images" :key="image" class="w-1/4" @click="changeImage(image)">
+            <img class="w-full h-32 object-cover px-3" :src="image" alt="">
+          </div>
         </div>
-      </a-carousel>
-
+      </div>
     </div>
-    <div class=" leading-loose">
-      <ul class="text-xl font-bold  mt-20 flex  "> 簡約彈性透肌背心
-      <span class="text-2xl hover:text-themeRed cursor-pointer  ml-44 ">
-      <i class="fa-regular fa-heart "></i></span></ul>
-      <div class= "text-xl mt-10 mx-80 font-bold">
-      <ul><li>NT.575</li></ul></div>
-      <div class= "text-xl  font-bold">
-      <ul class="flex cursor-pointer  -mt-6 mb-10 ">
-        <li class="selected"></li>
-          <li class=" size text-lg mr-6">S</li>
-          <li class=" size text-lg mr-6 ">M</li>
-          <li class=" size text-lg mr-1 ">L</li></ul>
-
-          <div class=" flex ">
-            <input type='button' value='-' class='Subtraction cursor-pointer  ' field='' />
-            <input type='text' name='quantity' value='1' class='qty' />
-            <input type='button' value='+' class='Increase cursor-pointer ' field='' /></div>
-        </div></div></div> 
-
-          <div class="flex justify-center -mt-60 mb-40 ">
+    <div class="w-1/2 leading-loose">
+      <div class="flex flex-col h-full justify-center px-5">
+        <p class="text-xl font-bold flex mb-8 justify-between">
+          <span>簡約彈性透肌背心</span>
+          <i class="fa-regular fa-heart text-2xl hover:text-themeRed cursor-pointer ml-44"></i>
+        </p>
+        <div class="text-xl font-bold flex justify-between mb-5">
+          <p>NT.575</p>
+          <ul class="flex cursor-pointer">
+            <li v-for="size in sizeList" :key="size.value" @click="setChosenSize(size.value)"
+              class="border px-2 text-lg mr-6 border-solid"
+              :class="[chosenSize == size.value ? 'border-black' : 'border-transparent']">
+              {{ size.label }}
+            </li>
+          </ul>
+        </div>
+        <div class="flex text-xl font-bold mb-5">
+          <input @click="minus" type='button' value='-' class='Subtraction cursor-pointer' field='' />
+          <input v-model="amount" type='text' name='quantity' value='1' class='qty flex-1' />
+          <input @click="plus" type='button' value='+' class='Increase cursor-pointer ' field='' />
+        </div>
+        <div class="flex justify-center">
           <button class="choosebuy mr-4  w-36 h-12" @click="changePage('/cart')">
-          <span>立即結帳</span></button>
+            <span>立即結帳</span></button>
           <button class="addcart w-36  h-12 text-white">
-          <a-button type="black text-white " @click="showModal">加入購物車</a-button>
-          <a-modal v-model:open="open" class="" @ok="handleOk">
-            <p class="mx-40 ">已加入購物車</p>
-          </a-modal></button></div>
-        </template>
+            <a-button type="black text-white " @click="showModal">加入購物車</a-button>
+            <a-modal v-model:open="open" class="" @ok="handleOk">
+              <p class="mx-40">已加入購物車</p>
+            </a-modal></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 
 <style scoped>
-
-.added-text {
-    display: none;
-}
 
 .choosebuy {
   border: 1px solid #323232;
@@ -79,17 +122,15 @@ const handleOk = e => {
 
 .addcart {
   border: 1px solid #323232;
-  background-color: #323232;
-  
+  background-color: #323232; 
 }
-
 
 .hover\:text-themeRed:hover {
     --tw-text-opacity: 1;
     color: rgb(205 51 51 / var(--tw-text-opacity));
 }
 
-.size:before{
+/* .size:before{
     height: 35px;
     min-width: 40px;
     line-height: 35px;
@@ -104,7 +145,7 @@ const handleOk = e => {
     line-height: 35px;
     display: block;
     text-align: center;
-}
+} */
 
 .product-buttons>div {
     width: 49%;

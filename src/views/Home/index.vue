@@ -8,7 +8,7 @@ import { useRouter, useRoute } from 'vue-router';
 const router = useRouter()
 
 const carouselImages=['https://pics.meierq.com/meierq/ProductBasics/2bccd7cd-7e41-432b-a31e-da10337d7003.jpg'
-,'https://pics.meierq.com/meierq/BannerImage/94f8900f-ef0b-4710-85b6-a1ca92ee762a.jpg','https://pics.meierq.com/meierq/ProductBasics/ca2a8048-47e5-4a0b-a287-331051cf339b.jpg'
+,'https://pics.meierq.com/meierq/BannerImage/94f8900f-ef0b-4710-85b6-a1ca92ee762a.jpg','https://pics.meierq.com/meierq/ProductBasics/ca2a8048-47e5-4a0b-a287-331051cf339b.jpg','https://pics.meierq.com/meierq/ProductBasics/aca0d3ad-724f-47b9-a3c1-e902966714f6.jpg'
 ]
 
 const recommendCard=['https://cdn.grail.bz/images/goods/d/kz520/kz520_v1.jpg','https://pics.meierq.com/meierq/ProductBasics/afb7bcd9-6fa2-4143-9f6e-03c08274402c.jpg','https://cdn.grail.bz/images/goods/d/fy016/fy016_v6.jpg','https://cdn.grail.bz/images/goods/d/nh54/nh54_v1.jpg','https://pics.meierq.com/meierq/ProductBasics/fc5fa713-b94e-4102-889b-abba800d9cdc.jpg','https://cdn.grail.bz/images/goods/d/dr682/dr682_v1.jpg','https://cdn.grail.bz/images/goods/d/tg735/tg735_v1.jpg','https://pics.meierq.com/meierq/ProductBasics/9a44d069-30d6-4ac7-bd4a-5d7f60201cdd.jpg']

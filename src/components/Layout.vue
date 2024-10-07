@@ -77,7 +77,8 @@ const menuList = computed(() => [
   },
   {
     icon: 'fa-regular fa-pen-to-square',
-    title: t('blog')
+    title: t('blog'),
+    action: () => changePage('/blog-home')
   },
   {
     icon: 'fa-regular fa-user',
@@ -110,7 +111,7 @@ const menuList = computed(() => [
         <img class="w-[200px] block mx-auto cursor-pointer " src="@/assets/images/b.gif" alt="" /></a>
 
     </header>
-    <ul class="flex justify-center sticky top-0 bg-white drop-shadow-lg">
+    <ul class="flex justify-center sticky top-0 bg-white drop-shadow-lg z-50">
       <li class="mr-9 nav-list ">
         <a href= "http://localhost:5173/sale" button @click="changePage('/sale')" class="nav-link relative text-xl py-5 inline-block">{{ t('summer_sale') }}</a>
       </li>
@@ -130,7 +131,9 @@ const menuList = computed(() => [
         <a href="http://localhost:5173/service" button @click="changePage('/Service')" class="nav-link relative text-xl py-5 inline-block">{{ t('after_sales service')}}</a>
       </li>
     </ul>
-    <slot/>
+    <div class="flex-1">
+      <slot/>
+    </div>
 
     <footer>
       <div class=" flex bg-Bottom-pink w-full  h-5/5  text-white">
@@ -158,9 +161,14 @@ const menuList = computed(() => [
     <div class="news-letter">
     <form id="form-newsletter-signup" novalidate="novalidate">
     <input type="email" class="text-slate-950 mt-2" name="email" placeholder="EMAIL" required=""/>
-    <button class="subscribe-mail-btn mx-4 flex-col " type="submit">SUBSCRIBE</button>
+    <button class="subscribe-mail-btn mx-4 flex-col " type="submit">SUBSCRIBE
+　　　
+      
+    </button>
     </form>
     </div> 
+
+
   
     <div class="tracking-wide font-bold mt-4 ">CUSTOMER SERVICE</div>
     <p class="">clpes12061014ab@gmail.com</p>

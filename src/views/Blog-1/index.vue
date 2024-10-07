@@ -2,7 +2,9 @@
 import { useRouter, useRoute } from 'vue-router';
 
 const router = useRouter()
-
+const changePage = (url) => {
+  router.push(url)
+}
 </script>
 
 <template>
@@ -16,7 +18,8 @@ const router = useRouter()
         <p class="mt-6 mb-8">2024.08.22 </p>
         <h2 class="mb-4">初秋日系多層次穿搭示範</h2>
    
-    <img src="https://www.queenshop.com.tw/assets/images/blog/24083002/a.jpg" class="w-60 mb-4 cursor-pointer " alt="" @click="changePage('/blog-2')">
+    <img src="https://www.queenshop.com.tw/assets/images/blog/24083002/a.jpg" class="w-60 mb-4 cursor-pointer " alt="" 
+    @click="changePage('/blog-2')">
         <span class="number">2</span>
         <p class="mt-6 mb-8">2024.11.8 </p>
         【日本佐賀 ‧ 旅拍】佐賀打卡必去<br>

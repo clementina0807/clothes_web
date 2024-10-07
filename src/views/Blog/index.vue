@@ -1,6 +1,10 @@
 <script setup>
 import { useRouter, useRoute } from 'vue-router';
+
 const router = useRouter()
+const changePage = (url) => {
+  router.push(url)
+}
 
 </script>
 
@@ -10,11 +14,14 @@ const router = useRouter()
     <img src="https://www.queenshop.com.tw/assets/images/blog/24083001/a.jpg" class="w-[40%] h-[40%] mx-48 mt-10" alt="">
       <div class="shadow-md">
     <nav class=" flex-col mt-5 mb-5">
-    <img src="https://www.queenshop.com.tw/assets/images/blog/24080901/a.jpg" class="w-60 mt-20 mb-4 cursor-pointer" alt="">
+    <img src="https://www.queenshop.com.tw/assets/images/blog/24080901/a.jpg" class="w-60 mt-20 mb-4 cursor-pointer" alt=""
+    @click="changePage('/blog-1')">
         <span class="number ">1</span>
         <p class="mt-6 mb-8">2024.09.15 </p>
          <h2 class="mb-4">7種牛仔短褲穿搭攻略</h2>
-     <img src="https://www.queenshop.com.tw/assets/images/blog/24083002/a.jpg" class="w-60 mb-4 cursor-pointer" alt="">
+         
+     <img src="https://www.queenshop.com.tw/assets/images/blog/24083002/a.jpg" class="w-60 mb-4 cursor-pointer" alt=""
+     @click="changePage('/blog-2')">
         <span class="number">2</span>
         <p class="mt-6 mb-8">2024.11.8 </p>
         【日本佐賀 ‧ 旅拍】佐賀打卡必去<br>

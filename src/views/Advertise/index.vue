@@ -1,21 +1,15 @@
 <script setup>
 import Advertise from '@/views/Advertise/index.vue'
-// import { useRouter, useRoute } from 'vue-router';
-// const router = useRouter()
-// router.push('/advertise');
+
 </script>
 <template>
- <div>
-advertise
+ <div class=" mx-40 w-4/5 my-20">
+<img src="https://photo.queenshop.com.tw/qs/333/24-0802SecondMorning.jpg" alt="">
 </div>
 </template>
 
 <style scoped>
-/* .advertisement img {
-    width: 50%;
-    border: 1px solid #ddd; 
-    border-radius: 5px; 
-} */
+
 </style>
 
 
