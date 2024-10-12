@@ -119,7 +119,7 @@ const scrollUp = () =>{
     </section>
     <div class="">
       <img button @click="changePage('/advertise')"
-        class="fixed bottom-5 right-5 w-[250px] mr-8 shadow-2xl cursor-pointer" src="@/assets/images/右下廣告.jpg" alt="">
+        class="fixed bottom-5 right-5 w-[150px] mr-8 shadow-2xl cursor-pointer z-10" src="https://www.queenshop.com.tw/Upload/FC25C35D-FA37-4BBA-A8AA-3B4DF3754A85/zh-TW/20211015121311989.jpg" alt="">
     </div>
     <!-- <div><i class="fa-solid fa-x mark justify-items-end"></i></div> -->
     <div @click="scrollUp" class="fixed bottom-[30px] text-3xl right-[15px] drop-shadow-lg ">
@@ -214,19 +214,7 @@ const scrollUp = () =>{
     filter:brightness(60%);
   }
   
-  .advertising {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width:200px;
-    /* height: 50px; */
-    line-height: 100px;
-    text-align: center;
-    background: #f4a7b9;
-    color: #fff;
-    margin-right: 3%;
-    
-  }
+ 
   .scrollToTop {
     position: fixed;
     bottom: 30px;
