@@ -2,7 +2,7 @@
 import { useRouter, useRoute } from 'vue-router';
 import { computed, ref } from 'vue';
 import { useProductStore } from '@/store/module/product'
-
+import { message } from 'ant-design-vue';
 
 const router = useRouter()
 const changePage = (url) => {
@@ -52,16 +52,37 @@ const chosenSize = ref(sizeList.value[0].value)
 const setChosenSize = (size) => {
   chosenSize.value = size
 }
+// 是不是已收藏
+const isFavorite = ref(productStore.favoriteProducts.some(item => item.id === routeId.value))
+const handleFavorite = (id) => {
+  isFavorite.value = !isFavorite.value // 先變相反狀態
+  if (isFavorite.value) {
+    message.success('已加入收藏')
+  } else {
+    message.success('移除收藏')
+  }
+  productStore.setFavoriteProducts(id)
+}
 
 // 數量
-const amount = ref(1)
+const quantity = ref(1)
 const plus = () => {
-  amount.value += 1
+  if (quantity.value === 10) {
+    message.warning('最多買 10 件唷 :)')
+    return
+  }
+  quantity.value += 1
 }
 const minus = () => {
-  if (amount.value > 1) {
-    amount.value -= 1
+  if (quantity.value > 1) {
+    quantity.value -= 1
   }
+}
+// 加入購物車
+const addCart = () => {
+  productStore.addCart(routeId.value, chosenSize.value, quantity.value)
+  message.success('已加入購物車')
+  changePage('/sale')
 }
 console.log(chosenSize.value);
 
@@ -82,7 +103,8 @@ console.log(chosenSize.value);
       <div class="flex flex-col h-full justify-center px-5">
         <p class="text-xl font-bold flex mb-8 justify-between">
           <span>簡約彈性透肌背心</span>
-          <i class="fa-regular fa-heart text-2xl hover:text-themeRed cursor-pointer ml-44"></i>
+          <i @click="handleFavorite(routeId)" class="fa-heart text-2xl hover:text-themeRed cursor-pointer ml-44"
+            :class="[`${isFavorite ? 'fa-solid' : 'fa-regular'}`]"></i>
         </p>
         <div class="text-xl font-bold flex justify-between mb-5">
           <p>NT.575</p>
@@ -96,17 +118,15 @@ console.log(chosenSize.value);
         </div>
         <div class="flex text-xl font-bold mb-5">
           <input @click="minus" type='button' value='-' class='Subtraction cursor-pointer' field='' />
-          <input v-model="amount" type='text' name='quantity' value='1' class='qty flex-1' />
+          <input v-model="quantity" type='text' name='quantity' value='1' class='qty flex-1' />
           <input @click="plus" type='button' value='+' class='Increase cursor-pointer ' field='' />
         </div>
         <div class="flex justify-center">
           <button class="choosebuy mr-4  w-36 h-12" @click="changePage('/cart')">
             <span>立即結帳</span></button>
-          <button class="addcart w-36  h-12 text-white">
-            <a-button type="black text-white " @click="showModal">加入購物車</a-button>
-            <a-modal v-model:open="open" class="" @ok="handleOk">
-              <p class="mx-40">已加入購物車</p>
-            </a-modal></button>
+          <button @click="addCart" class="addcart w-36 h-12 text-white">
+            加入購物車
+          </button>
         </div>
       </div>
     </div>

@@ -131,7 +131,7 @@ const menuList = computed(() => [
         <a href="http://localhost:5173/service" button @click="changePage('/Service')" class="nav-link relative text-xl py-5 inline-block">{{ t('after_sales service')}}</a>
       </li>
     </ul>
-    <div class="flex-1">
+    <div class="flex-1 h-full">
       <slot/>
     </div>
 
