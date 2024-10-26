@@ -112,23 +112,14 @@ const menuList = computed(() => [
 
     </header>
     <ul class="flex justify-center sticky top-0 bg-white drop-shadow-lg z-50">
-      <li class="mr-9 nav-list ">
-        <a href= "http://localhost:5173/sale" button @click="changePage('/sale')" class="nav-link relative text-xl py-5 inline-block">{{ t('summer_sale') }}</a>
+      <li class="mr-9 nav-list">
+        <div @click="changePage('/sale?category=featured')" class="nav-link relative text-xl py-5 inline-block cursor-pointer">{{ t('summer_sale') }}</div>
       </li>
       <li class="mr-9 nav-list">
-        <a href="http://localhost:5173/bestseller" button @click="changePage('/bestseller')" class="nav-link relative text-xl py-5 inline-block">{{ t('bestseller') }}</a>
+        <div @click="changePage('/sale?category=hot')" class="nav-link relative text-xl py-5 inline-block cursor-pointer">{{ t('bestseller') }}</div>
       </li>
       <li class="mr-9 nav-list">
-        <a href="http://localhost:5173/products" button @click="changePage('/Products')" class="nav-link relative text-xl py-5 inline-block">{{ t('in_stock') }}</a>
-      </li>
-      <li class="mr-9 nav-list">
-        <a href="http://localhost:5173/new" button @click="changePage('/New')" class="nav-link relative text-xl py-5 inline-block">{{ t('new_arrival') }}</a>
-      </li>
-      <li class="mr-9 nav-list">
-        <a href="http://localhost:5173/photo" button @click="changePage('/Photo')" class="nav-link relative text-xl py-5 inline-block">{{ t('travel_photography') }} </a>
-      </li>
-      <li class="nav-list">
-        <a href="http://localhost:5173/service" button @click="changePage('/Service')" class="nav-link relative text-xl py-5 inline-block">{{ t('after_sales service')}}</a>
+        <div @click="changePage('/sale?category=global')" class="nav-link relative text-xl py-5 inline-block cursor-pointer">{{ t('in_stock') }}</div>
       </li>
     </ul>
     <div class="flex-1 h-full">
@@ -152,7 +143,7 @@ const menuList = computed(() => [
     <div class=" tracking-wide font-bold mb-3 ">SOCIAL</div><ul>
     <li><a href="https://www.instagram.com/meierq" target="_blank">Instagram</a></li>
     <li><a href="https://www.facebook.com/meier.q" target="_blank">Facebook</a></li>
-    <li><a href="https://line.me/R/ti/p/@exv5945d" target="_blank">Line</a></li>
+    <li><a href="https://line.me/ti/p/SJqjZ4H6OD" target="_blank">Line</a></li>
     </ul>
     </div>
 

@@ -1,20 +1,24 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed, watch } from 'vue'
 import SaleCard from '@/components/SaleCard.vue'
 import { productApi } from '@/api/product'
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { useProductStore } from '@/store/module/product'
 
 // 跳頁
 const router = useRouter()
+const route = useRoute()
+const category = ref(route.query.category)
 const changePage = (url) => {
   router.push(url)
 }
 
+
+
 // 去store拿products
 const productStore = useProductStore()
-const products = ref(productStore.saleProducts)
-const filteredProducts = ref(productStore.saleProducts)
+const products = computed(() => productStore.saleProducts.filter(item => item.category === category.value))
+const filteredProducts = ref(productStore.saleProducts.filter(item => item.category === category.value))
 
 // 分類
 const getCategory = (category) => {
@@ -29,22 +33,29 @@ const getCategory = (category) => {
 // 排序
 const sortProducts = (event) => {
   const sortType = event.target.value
+  const newProducts = [...products.value]
   switch(sortType) {
     case 'priceAsc':
       // asc 升序 => arr.sort((a, b) => a - b);
-      filteredProducts.value = products.value.sort((a, b) => a.price - b.price)
+      filteredProducts.value = newProducts.sort((a, b) => a.price - b.price)
       break
     case 'priceDesc':
       // desc 降序 => arr.sort((a, b) => b - a);
-      filteredProducts.value = products.value.sort((a, b) => b.price - a.price)
+      filteredProducts.value = newProducts.sort((a, b) => b.price - a.price)
       break
     case 'new':
-      filteredProducts.value = products.value.sort((a, b) => b.createdAt - a.createdAt)
-      console.log(filteredProducts.value);
+      filteredProducts.value = newProducts.sort((a, b) => b.createdAt - a.createdAt)
       break
     default:
   }
 }
+watch(route, (newVal) => {
+  console.log(category.value);
+  // 1. 分類值改成當頁分類值
+  category.value = newVal.query.category
+  // 2. filteredProducts值改成當頁分類值
+  filteredProducts.value = productStore.saleProducts.filter(item => item.category === category.value)
+})
 </script>
 
 <template>

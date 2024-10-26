@@ -1,5 +1,6 @@
 <script setup>
-import { defineProps, defineEmits, ref } from 'vue'
+import { defineProps, defineEmits, ref, watch } from 'vue'
+import Checkbox from '@/components/Checkbox.vue'
 const props = defineProps({
   image: {
     type: String
@@ -16,19 +17,37 @@ const props = defineProps({
   size: {
     type: String
   },
+  checked: {
+    type: Boolean,
+    default: false
+  },
 })
 
 
-const emit = defineEmits('removeCart')
+const emit = defineEmits('removeCart', 'checkedChange')
 const handleRemove = () => {
   emit('removeCart')
 }
 
 const quantity = ref(props.quantity)
+const checked = ref(props.checked)
 
+const checkedChange = (newVal) => {
+  checked.value = newVal
+  emit('checkedChange', newVal)
+}
+watch(checked, (newVal) => {
+  checked.value = newVal
+  emit('checkedChange', newVal)
+})
+watch(() => props.checked, (newVal) => {
+  checked.value = newVal
+  emit('checkedChange', newVal)
+})
 </script>
 <template>
   <div class="flex h-[200px]">
+    <checkbox class="mr-2" :checked="checked" @checked-change="checkedChange" />
     <img :src="image" class="w-40 mr-5 h-full object-contain">
     <div class="flex-1 flex flex-col">
       <div class="flex items-center justify-between">

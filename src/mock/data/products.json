@@ -5,7 +5,7 @@
   "cover": "https://pics.meierq.com/meierq/ProductBasics/433c3e22-8c76-422a-b9da-1c2eb4653300.jpg",
   "images": ["https://pics.meierq.com/meierq/ProductBasics/433c3e22-8c76-422a-b9da-1c2eb4653300.jpg", "https://pics.meierq.com/meierq/ProductBasics/7ecb6c38-70f8-4083-8210-c8910287f25f.jpg", "https://pics.meierq.com/meierq/ProductBasics/dae6e427-4fa8-4d13-ab32-b2a559d1f73f.jpg", "https://pics.meierq.com/meierq/ProductBasics/43d2549c-0738-493b-ab2f-d4bccd3db3a7.jpg"],
   "price": 390,
-  "category": "hot",
+  "category": "all",
   "createdAt": 1726409993
 },
 {
@@ -13,83 +13,135 @@
   "name": "透紗木耳邊V領外罩洋裝",
   "cover": "https://pics.meierq.com/meierq/ProductBasics/26fdc38d-ae44-4bb1-a277-14063968be52.jpg",
   "images": ["https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg", "https://pics.meierq.com/meierq/ProductBasics/ff09e4e0-b88a-4bb8-a983-1da40b92532a.jpg", "https://pics.meierq.com/meierq/ProductBasics/dae6e427-4fa8-4d13-ab32-b2a559d1f73f.jpg", "https://pics.meierq.com/meierq/ProductBasics/43d2549c-0738-493b-ab2f-d4bccd3db3a7.jpg"],
-  "price": 290,
+  "price": 590,
   "category": "hot",
   "createdAt": 1626409993
 },
 {
   "id": 3,
-  "name": "蕾絲小花透肌短袖上衣",
-  "cover": "https://pics.meierq.com/meierq/ProductBasics/26fdc38d-ae44-4bb1-a277-14063968be52.jpg",
-  "images": ["https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg", "https://pics.meierq.com/meierq/ProductBasics/ff09e4e0-b88a-4bb8-a983-1da40b92532a.jpg", "https://pics.meierq.com/meierq/ProductBasics/dae6e427-4fa8-4d13-ab32-b2a559d1f73f.jpg", "https://pics.meierq.com/meierq/ProductBasics/43d2549c-0738-493b-ab2f-d4bccd3db3a7.jpg"],
+  "name": "V領造型BRA TOP",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/51578008-805a-40d3-91e5-3da5e0daadc7.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/51578008-805a-40d3-91e5-3da5e0daadc7.jpg", "https://pics.meierq.com/meierq/ProductBasics/40af67ef-e694-4ed7-bf51-27f184b67e9f.jpg", "hhttps://pics.meierq.com/meierq/ProductBasics/66d7a7cd-37f7-4bff-a255-1eab8357c033.jpg", "https://pics.meierq.com/meierq/ProductBasics/79a433fe-ff04-4fe0-9312-2e7aa50abf01.jpg"],
   "price": 890,
   "category": "hot",
   "createdAt": 1726408393
 },
 {
   "id": 4,
-  "name": "簡約彈性透肌背心",
-  "cover": "https://pics.meierq.com/meierq/ProductBasics/26fdc38d-ae44-4bb1-a277-14063968be52.jpg",
-  "images": ["https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg", "https://pics.meierq.com/meierq/ProductBasics/ff09e4e0-b88a-4bb8-a983-1da40b92532a.jpg", "https://pics.meierq.com/meierq/ProductBasics/dae6e427-4fa8-4d13-ab32-b2a559d1f73f.jpg", "https://pics.meierq.com/meierq/ProductBasics/43d2549c-0738-493b-ab2f-d4bccd3db3a7.jpg"],
-  "price": 790,
+  "name": "透感蕾絲外罩單肩洋裝",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/75c3b21c-0736-4a1a-a20f-5a4027ae23ec.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/75c3b21c-0736-4a1a-a20f-5a4027ae23ec.jpg", "https://pics.meierq.com/meierq/ProductBasics/f5f394f1-0e96-4983-b238-ab973e6b5ee1.jpg", "hhttps://pics.meierq.com/meierq/ProductBasics/32eb162b-5b5b-45fe-86ba-efd1d97368ed.jpg", "https://pics.meierq.com/meierq/ProductBasics/ceb60492-0ca2-47b7-9471-5a5dd3cbaa54.jpg"],
+  "price": 700,
   "category": "featured",
   "createdAt": 1726559993
 },
 {
   "id": 5,
-  "name": "簡約彈性透肌背心",
-  "cover": "https://pics.meierq.com/meierq/ProductBasics/26fdc38d-ae44-4bb1-a277-14063968be52.jpg",
-  "images": ["https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg", "https://pics.meierq.com/meierq/ProductBasics/ff09e4e0-b88a-4bb8-a983-1da40b92532a.jpg", "https://pics.meierq.com/meierq/ProductBasics/dae6e427-4fa8-4d13-ab32-b2a559d1f73f.jpg", "https://pics.meierq.com/meierq/ProductBasics/43d2549c-0738-493b-ab2f-d4bccd3db3a7.jpg"],
-  "price": 190,
+  "name": "蕾絲小花小高領短袖上衣",
+  "cover": "hhttps://pics.meierq.com/meierq/ProductBasics/2ca94668-868b-4c31-96ab-ccc68b772615.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/2ca94668-868b-4c31-96ab-ccc68b772615.jpg", "hhttps://pics.meierq.com/meierq/ProductBasics/c2a831d1-6b7d-4215-ad8a-5e9ff9ca6cd7.jpg", "https://pics.meierq.com/meierq/ProductBasics/624e349d-c9f8-4289-891e-12dca7a54c35.jpg", "https://pics.meierq.com/meierq/ProductBasics/97ac496f-9b2a-4e03-83a8-352f21802498.jpg"],
+  "price": 399,
   "category": "featured",
   "createdAt": 1546409993
 }
 ,
 {
   "id": 6,
-  "name": "簡約彈性透肌背心",
-  "cover": "https://pics.meierq.com/meierq/ProductBasics/26fdc38d-ae44-4bb1-a277-14063968be52.jpg",
-  "images": ["https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg", "https://pics.meierq.com/meierq/ProductBasics/ff09e4e0-b88a-4bb8-a983-1da40b92532a.jpg", "https://pics.meierq.com/meierq/ProductBasics/dae6e427-4fa8-4d13-ab32-b2a559d1f73f.jpg", "https://pics.meierq.com/meierq/ProductBasics/43d2549c-0738-493b-ab2f-d4bccd3db3a7.jpg"],
-  "price": 1090,
+  "name": "皮革開釦外套",
+  "cover": "hhttps://pics.meierq.com/meierq/ProductBasics/29506ea3-6709-4885-8cfa-7e20a73b8eb0.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/29506ea3-6709-4885-8cfa-7e20a73b8eb0.jpg", "https://pics.meierq.com/meierq/ProductBasics/b0609b25-e15f-4ff5-9d2e-465c6fa5ef7b.jpg", "https://pics.meierq.com/meierq/ProductBasics/1c68ba5c-d364-48c8-a94b-55c390d0b638.jpg", "https://pics.meierq.com/meierq/ProductBasics/ea3a0a41-9a41-481b-93d2-863b36ed1883.jpg"],
+  "price": 1490,
   "category": "featured",
   "createdAt": 1624409993
 },
 {
   "id": 7,
-  "name": "簡約彈性透肌背心",
-  "cover": "https://pics.meierq.com/meierq/ProductBasics/26fdc38d-ae44-4bb1-a277-14063968be52.jpg",
-  "images": ["https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg", "https://pics.meierq.com/meierq/ProductBasics/ff09e4e0-b88a-4bb8-a983-1da40b92532a.jpg", "https://pics.meierq.com/meierq/ProductBasics/dae6e427-4fa8-4d13-ab32-b2a559d1f73f.jpg", "https://pics.meierq.com/meierq/ProductBasics/43d2549c-0738-493b-ab2f-d4bccd3db3a7.jpg"],
-  "price": 490,
+  "name": "立體直紋垂墜感長褲",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/127157d8-eee9-4964-8314-028195f13ee2.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/127157d8-eee9-4964-8314-028195f13ee2.jpg", "https://pics.meierq.com/meierq/ProductBasics/fb937341-6d5f-4046-b0e3-a6b0a088d676.jpg", "https://pics.meierq.com/meierq/ProductBasics/ed0d5097-d090-42ba-aea6-a7befda72d3f.jpg", "https://pics.meierq.com/meierq/ProductBasics/8398e2a2-288c-41a3-8569-9953664973f2.jpg"],
+  "price": 690,
   "category": "featured",
   "createdAt": 1739909993
 },
 {
   "id": 8,
-  "name": "簡約彈性透肌背心",
-  "cover": "https://pics.meierq.com/meierq/ProductBasics/26fdc38d-ae44-4bb1-a277-14063968be52.jpg",
-  "images": ["https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg", "https://pics.meierq.com/meierq/ProductBasics/ff09e4e0-b88a-4bb8-a983-1da40b92532a.jpg", "https://pics.meierq.com/meierq/ProductBasics/dae6e427-4fa8-4d13-ab32-b2a559d1f73f.jpg", "https://pics.meierq.com/meierq/ProductBasics/43d2549c-0738-493b-ab2f-d4bccd3db3a7.jpg"],
-  "price": 90,
+  "name": "銀絲閃亮透肌長袖上衣",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/63a4499a-c536-4f7d-9a31-f0fb40b968f7.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/63a4499a-c536-4f7d-9a31-f0fb40b968f7.jpg", "https://pics.meierq.com/meierq/ProductBasics/b16a6e0a-8140-412e-bf4a-615f742f9a09.jpg", "https://pics.meierq.com/meierq/ProductBasics/ec1d218f-4f9c-46df-abed-e8cec9e48d2e.jpg", "https://pics.meierq.com/meierq/ProductBasics/c3deeee0-cbd9-4628-8143-4ac267fc4628.jpg"],
+  "price": 399,
   "category": "featured",
   "createdAt": 1526409993
 }
 ,
 {
   "id": 9,
-  "name": "簡約彈性透肌背心",
-  "cover": "https://pics.meierq.com/meierq/ProductBasics/26fdc38d-ae44-4bb1-a277-14063968be52.jpg",
-  "images": ["https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg", "https://pics.meierq.com/meierq/ProductBasics/ff09e4e0-b88a-4bb8-a983-1da40b92532a.jpg", "https://pics.meierq.com/meierq/ProductBasics/dae6e427-4fa8-4d13-ab32-b2a559d1f73f.jpg", "https://pics.meierq.com/meierq/ProductBasics/43d2549c-0738-493b-ab2f-d4bccd3db3a7.jpg"],
-  "price": 690,
+  "name": "輕盈短紗蝴蝶結髮夾",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/d7fb4f2a-1cbf-48e6-b51a-95af148c04f7.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/d7fb4f2a-1cbf-48e6-b51a-95af148c04f7.jpg", "https://pics.meierq.com/meierq/ProductBasics/81702c8c-8a85-4423-ab1d-ab611f8516e2.jpg", "https://pics.meierq.com/meierq/ProductBasics/ae4427ae-e6cb-4496-ba1a-6f1780deacef.jpg", "https://pics.meierq.com/meierq/ProductBasics/55d14954-fd40-4601-8dc7-a42b940bd87a.jpg"],
+  "price": 490,
   "category": "global",
   "createdAt": 1606409993
 }
 ,
 {
   "id": 10,
-  "name": "簡約彈性透肌背心",
-  "cover": "https://pics.meierq.com/meierq/ProductBasics/26fdc38d-ae44-4bb1-a277-14063968be52.jpg",
-  "images": ["https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg", "https://pics.meierq.com/meierq/ProductBasics/ff09e4e0-b88a-4bb8-a983-1da40b92532a.jpg", "https://pics.meierq.com/meierq/ProductBasics/dae6e427-4fa8-4d13-ab32-b2a559d1f73f.jpg", "https://pics.meierq.com/meierq/ProductBasics/43d2549c-0738-493b-ab2f-d4bccd3db3a7.jpg"],
-  "price": 290,
+  "name": "仙女質感串珠戒指",
+  "cover": "https://www.meierq.com/zh-tw/market/n/11798?c=32167",
+  "images": ["https://www.meierq.com/zh-tw/market/n/11798?c=32167", "https://pics.meierq.com/meierq/ProductBasics/a35bc537-0066-49ee-803b-e73f8bf62c4b.jpg", "https://pics.meierq.com/meierq/ProductBasics/9f5a9d48-ed74-4046-9a86-d4a11d45f207.jpg", "https://pics.meierq.com/meierq/ProductBasics/410175af-0f3e-4c45-8a3a-1f70f0f6af8f.jpg"],
+  "price": 490,
+  "category": "hot",
+  "createdAt": 1626409793
+}
+,
+{
+  "id": 11,
+  "name": "棉麻感直紋襯衫",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/9e9b4a85-a2ef-4c8d-9471-e83b64e57731.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/9e9b4a85-a2ef-4c8d-9471-e83b64e57731.jpg", "https://pics.meierq.com/meierq/ProductBasics/6269065c-59d5-4e6f-a3e9-43900e17cc8c.jpg", "https://pics.meierq.com/meierq/ProductBasics/a9adc57f-f879-440e-a6c8-08915a380a71.jpg", "https://pics.meierq.com/meierq/ProductBasics/7fb8e553-f9b4-4d31-9dd6-55f9878084be.jpg"],
+  "price": 690,
+  "category": "all",
+  "createdAt": 1626409793
+}
+,
+{
+  "id": 12,
+  "name": "日系蕾絲滾邊背心",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/a64af3a9-d193-4638-bc2b-19b456c5f4e7.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/a64af3a9-d193-4638-bc2b-19b456c5f4e7.jpg", "https://pics.meierq.com/meierq/ProductBasics/604da3ea-b771-49aa-a08f-25fbf957ef47.jpg", "https://pics.meierq.com/meierq/ProductBasics/5f426072-011b-4bd8-a282-228196aac0e2.jpg", "https://pics.meierq.com/meierq/ProductBasics/6dfa4a2c-b593-4c9c-9b80-f8e3ecd42376.jpg"],
+  "price": 490,
+  "category": "featured",
+  "createdAt": 1626409793
+}
+,
+{
+  "id": 13,
+  "name": "蕾絲拼接蛋糕裙",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/f5e60899-1a29-44fb-8ba3-d9dcf5d16afd.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/f5e60899-1a29-44fb-8ba3-d9dcf5d16afd.jpg", "https://pics.meierq.com/meierq/ProductBasics/82e723de-aefd-434a-b783-e73c87b305e4.jpg", "https://pics.meierq.com/meierq/ProductBasics/281bd859-926f-4ab3-b1e3-bb4734446619.jpg", "https://pics.meierq.com/meierq/ProductBasics/56d81f26-ce02-4dd6-bbc0-8cfd0b956fcc.jpg"],
+  "price": 990,
   "category": "global",
   "createdAt": 1626409793
 }
+,
+{
+  "id": 14,
+  "name": "簍空花紋漁夫帽",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/b896a8a5-54c2-4d57-8c82-79624be138eb.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/b896a8a5-54c2-4d57-8c82-79624be138eb.jpg", "https://pics.meierq.com/meierq/ProductBasics/3b59f8f8-eef2-42db-92da-7c94c3f99702.jpg", "https://pics.meierq.com/meierq/ProductBasics/6ee74ea4-2cd6-4748-92cd-c19a7776116d.jpg", "https://pics.meierq.com/meierq/ProductBasics/05aeaef3-4082-40d7-b13d-911dccced833.jpg"],
+  "price": 490,
+  "category": "featured",
+  "createdAt": 1626409793
+}
+,
+{
+  "id": 15,
+  "name": "日常簡約彈性髮圈",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/18384e2a-3f1e-4be5-bbbc-4c0f5d51bc27.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/18384e2a-3f1e-4be5-bbbc-4c0f5d51bc27.jpg", "https://pics.meierq.com/meierq/ProductBasics/611e8bc6-4f8e-4c89-95d6-5e3fc282ae2d.jpg", "https://pics.meierq.com/meierq/ProductBasics/ce9b332c-60ed-4a48-95de-7e34fc81d7c1.jpg", "https://pics.meierq.com/meierq/ProductBasics/0777ca8e-1a2e-47ad-ab6f-904930830528.jpg"],
+  "price": 490,
+  "category": "all",
+  "createdAt": 1626409793
+}
+
+
 ]
