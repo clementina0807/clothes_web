@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useUserStore } from '@/store/module/user'
 import ProductCard from '@/components/ProductCard.vue'
 import { useRouter, useRoute } from 'vue-router';
+import Layout from '@/components/Layout.vue';
 
 
 const router = useRouter()

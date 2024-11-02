@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import SaleCard from '@/components/SaleCard.vue'
 import { productApi } from '@/api/product'
 import { useRouter } from 'vue-router';
+
 const router = useRouter()
 
 
@@ -64,9 +65,9 @@ onMounted(() => getProducts())
       <div class="font-bold bg-background mr-10 ml-12 mt-12 underline underline-offset-2 leading-loose ">
         <ul>
           <li class="cursor-pointer" @click="getCategory('all')">全部商品</li>
-          <li class="cursor-pointer" @click="getCategory('hot')">人氣熱銷88折</li>
-          <li class="cursor-pointer" @click="getCategory('featured')">春夏精選79折</li>
-          <li class="cursor-pointer" @click="getCategory('global')">全區三件5折</li>
+          <li class="cursor-pointer" @click="getCategory('hot')">品牌主打</li>
+          <li class="cursor-pointer" @click="getCategory('featured')">初秋仙女透膚</li>
+          <li class="cursor-pointer" @click="getCategory('global')">層次感疊搭單品</li>
         </ul>
       </div>
 

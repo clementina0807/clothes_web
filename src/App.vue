@@ -10,8 +10,8 @@ const productStore = useProductStore()
 const saleProducts = ref(productStore.saleProducts)
 
 const getSaleProducts = async () => {
-  const { data } = await productApi.getProducts()
-  saleProducts.value = data
+  const { data } = await productApi.SaleProducts()
+  SaleProducts.value = data
   // 3. 使用
   productStore.setSaleProducts(data)
 }

@@ -15,6 +15,7 @@ const changePage = (url) => {
 
 
 
+
 // 去store拿products
 const productStore = useProductStore()
 const products = computed(() => productStore.saleProducts.filter(item => item.category === category.value))

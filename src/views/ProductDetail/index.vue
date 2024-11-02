@@ -4,10 +4,7 @@ import { computed, ref } from 'vue';
 import { useProductStore } from '@/store/module/product'
 import { message } from 'ant-design-vue';
 
-const router = useRouter()
-const changePage = (url) => {
-  router.push(url)
-}
+
 const route = useRoute()
 const routeId = computed(() => Number(route.params.id)) // 字串
 const category = computed(() => route.query.category)
@@ -17,6 +14,7 @@ const activeImage = ref(product.value.images?.[0])
 const changeImage = (image) => {
   activeImage.value = image
 }
+
 
 const baseUrl =
   'https://raw.githubusercontent.com/vueComponent/ant-design-vue/main/components/carousel/demo/';
@@ -82,7 +80,7 @@ const minus = () => {
 const addCart = () => {
   productStore.addCart(routeId.value, chosenSize.value, quantity.value)
   message.success('已加入購物車')
-  changePage('/sale')
+  changePage('/sale?category=global')
 }
 console.log(chosenSize.value);
 
@@ -102,7 +100,7 @@ console.log(chosenSize.value);
     <div class="w-1/2 leading-loose">
       <div class="flex flex-col h-full justify-center px-5">
         <p class="text-xl font-bold flex mb-8 justify-between">
-          <span>簡約彈性透肌背心</span>
+          <span >檢閱</span>
           <i @click="handleFavorite(routeId)" class="fa-heart text-2xl hover:text-themeRed cursor-pointer ml-44"
             :class="[`${isFavorite ? 'fa-solid' : 'fa-regular'}`]"></i>
         </p>

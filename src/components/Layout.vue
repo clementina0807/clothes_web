@@ -19,6 +19,7 @@ const scrollUp = () =>{
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
+
 // 翻譯
 const { t, locale } = useI18n()
 const languageList = {
@@ -42,6 +43,7 @@ const loginForm = reactive({
 const showModal = (bool) => {
   open.value = bool
 }
+
 
 const login = async () => {
   try {
@@ -124,6 +126,52 @@ const menuList = computed(() => [
     </ul>
     <div class="flex-1 h-full">
       <slot/>
+      <div class="menu__bg">
+            <div class="menu__container clearfix">
+                
+                <h1 class="menu__logo">
+                    <a href="/" class="menu__logo-link"><img src="https://ithelp.ithome.com.tw/storage/image/nav_logo.svg" alt="iT邦幫忙"></a>
+                </h1>
+
+                                
+                
+                <ul class="list-unstyled menu__left">
+                    <li class="menu__item">
+                        <a href="https://ithelp.ithome.com.tw/questions" class="menu__item-link  menu__item-link--active  menu__item-link--pl">search 搜尋...</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="https://ithelp.ithome.com.tw/articles?tab=tech" class="menu__item-link ">技術文章</a>
+                    </li>
+                    
+                    <li class="menu__item">
+                        <a href="https://ithelp.ithome.com.tw/articles?tab=job" class="menu__item-link  hidden-xs">iT 徵才</a>
+                    </li>
+                    
+                    <li class="menu__item">
+                        <a href="https://ithelp.ithome.com.tw/tags" class="menu__item-link  hidden-xs">Tag</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="https://ithelp.ithome.com.tw/talks" class="menu__item-link  hidden-xs">聊天室</a>
+                    </li>
+                    <li class="menu__item menu__item--ironman">
+                        <a href="/2024ironman/" target="_blank" class="menu__item-link hidden-xs">2024 鐵人賽</a>
+                    </li>
+                </ul>
+                
+
+                                    
+                    <ul class="list-unstyled menu__right">
+                        <li class="menu__item">
+                            <div id="searchDropdown" class="menu__search-btn menu__search-btn--active">
+                                <span class="menu__search-toggle active"></span>
+                            </div>
+                        </li>
+                        <li class="menu__item">
+                            <a href="https://ithelp.ithome.com.tw/users/login" class="menu__item-link">登入/註冊</a>
+                        </li>
+                    </ul>
+                            </div>
+        </div>
     </div>
 
     <footer>
