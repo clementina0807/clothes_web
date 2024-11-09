@@ -21,6 +21,7 @@ const scrollUp = () =>{
 }
 
 
+
 // 翻譯
 const { t, locale } = useI18n()
 const languageList = {
@@ -151,7 +152,9 @@ const menuList = computed(() => [
       <li><a href="/news">News</a></li></ul></div>
       <div class="ml-40 mt-8 ">
       <div class="  tracking-wide font-bold mb-3 ">HELP</div><ul>
-      <li @click="('/service')" class="cursor-pointer">商品售後服務說明</li>
+      <router-link to="/service">
+       <li class="cursor-pointer">商品售後服務說明</li>
+      </router-link>
     </ul> </div>
     <div class="ml-40 mt-8">
     <div class=" tracking-wide font-bold mb-3 ">SOCIAL</div><ul>
