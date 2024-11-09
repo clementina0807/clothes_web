@@ -15,7 +15,6 @@ const changeImage = (image) => {
   activeImage.value = image
 }
 
-
 const baseUrl =
   'https://raw.githubusercontent.com/vueComponent/ant-design-vue/main/components/carousel/demo/';
 const getImgUrl = i => {
@@ -100,7 +99,7 @@ console.log(chosenSize.value);
     <div class="w-1/2 leading-loose">
       <div class="flex flex-col h-full justify-center px-5">
         <p class="text-xl font-bold flex mb-8 justify-between">
-          <span >檢閱</span>
+          <span >{{ product.name }}</span>
           <i @click="handleFavorite(routeId)" class="fa-heart text-2xl hover:text-themeRed cursor-pointer ml-44"
             :class="[`${isFavorite ? 'fa-solid' : 'fa-regular'}`]"></i>
         </p>

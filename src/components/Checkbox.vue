@@ -10,19 +10,19 @@ const props = defineProps({
 const emit = defineEmits('checkedChange')
 const checked = ref(props.checked)
 
-watch(checked, (newVal) => {
-  checked.value = newVal
-  emit('checkedChange', newVal)
-})
+const handleChange = (e) => {
+  const checked = e.target.checked
+  emit('checkedChange', checked)
+}
+
 watch(() => props.checked, (newVal) => {
   checked.value = newVal
-  emit('checkedChange', newVal)
 })
 </script>
 <template>
   <div class="flex items-center">
     <label class="relative block w-4 h-4 rounded cursor-pointer border-2 border-solid border-black">
-      <input v-model="checked" type="checkbox" class="invisible absolute">
+      <input v-model="checked" type="checkbox" class="invisible absolute" @change="handleChange">
       <i :class="{ hidden: !checked }"
         class="fa-solid fa-check absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
     </label>

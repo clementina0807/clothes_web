@@ -24,6 +24,9 @@ export const useProductStore = defineStore(
       }
     };
     const cart = ref([]);
+    const setCart = (newCart) => {
+      cart.value = newCart;
+    };
     const addCart = (id, size, quantity) => {
       const product = saleProducts.value.find((item) => item.id === id);
       cart.value = [
@@ -40,14 +43,22 @@ export const useProductStore = defineStore(
       originCart.splice(idx, 1);
       cart.value = originCart;
     };
+
+    const orders = ref([]);
+    const setOrders = (newOrder) => {
+      orders.value = newOrder;
+    };
     return {
       saleProducts,
       setSaleProducts,
       favoriteProducts,
       setFavoriteProducts,
+      setCart,
       cart,
       addCart,
       removeCart,
+      orders,
+      setOrders,
     };
   },
   {

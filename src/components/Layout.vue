@@ -8,6 +8,7 @@ import { message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n'
 import { setLanguage } from "@/utils/localStorage";
 
+
 const userStore = useUserStore()
 const myToken = ref(userStore.token)
 
@@ -62,6 +63,17 @@ const login = async () => {
   }
 }
 
+// 改變主題
+const isDarkTheme = computed(() => useUserStore.isDarkTheme)
+
+const changeTheme = (isDark) => {
+  isDarkTheme.value = isDark
+  userStore.setIsDarkTheme(isDark)
+  const messageText = isDark ? '暗黑模式' : '明亮模式'
+  message.success(messageText)
+}
+
+
 const menuList = computed(() => [
   {
     icon: 'fa-solid fa-magnifying-glass',
@@ -115,64 +127,19 @@ const menuList = computed(() => [
     </header>
     <ul class="flex justify-center sticky top-0 bg-white drop-shadow-lg z-50">
       <li class="mr-9 nav-list">
-        <div @click="changePage('/sale?category=featured')" class="nav-link relative text-xl py-5 inline-block cursor-pointer">{{ t('summer_sale') }}</div>
+        <div @click="changePage('/sale?category=featured')" class="nav-link relative text-xl py-5 inline-block cursor-pointer font-semibold">{{ t('summer_sale') }}</div>
       </li>
       <li class="mr-9 nav-list">
-        <div @click="changePage('/sale?category=hot')" class="nav-link relative text-xl py-5 inline-block cursor-pointer">{{ t('bestseller') }}</div>
+        <div @click="changePage('/sale?category=hot')" class="nav-link relative text-xl py-5 inline-block cursor-pointer font-semibold">{{ t('bestseller') }}</div>
       </li>
       <li class="mr-9 nav-list">
-        <div @click="changePage('/sale?category=global')" class="nav-link relative text-xl py-5 inline-block cursor-pointer">{{ t('in_stock') }}</div>
+        <div @click="changePage('/sale?category=global')" class="nav-link relative text-xl py-5 inline-block cursor-pointer font-semibold text-rose-800">{{ t('in_stock') }}</div>
       </li>
     </ul>
     <div class="flex-1 h-full">
-      <slot/>
-      <div class="menu__bg">
-            <div class="menu__container clearfix">
-                
-                <h1 class="menu__logo">
-                    <a href="/" class="menu__logo-link"><img src="https://ithelp.ithome.com.tw/storage/image/nav_logo.svg" alt="iT邦幫忙"></a>
-                </h1>
-
-                                
-                
-                <ul class="list-unstyled menu__left">
-                    <li class="menu__item">
-                        <a href="https://ithelp.ithome.com.tw/questions" class="menu__item-link  menu__item-link--active  menu__item-link--pl">search 搜尋...</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="https://ithelp.ithome.com.tw/articles?tab=tech" class="menu__item-link ">技術文章</a>
-                    </li>
-                    
-                    <li class="menu__item">
-                        <a href="https://ithelp.ithome.com.tw/articles?tab=job" class="menu__item-link  hidden-xs">iT 徵才</a>
-                    </li>
-                    
-                    <li class="menu__item">
-                        <a href="https://ithelp.ithome.com.tw/tags" class="menu__item-link  hidden-xs">Tag</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="https://ithelp.ithome.com.tw/talks" class="menu__item-link  hidden-xs">聊天室</a>
-                    </li>
-                    <li class="menu__item menu__item--ironman">
-                        <a href="/2024ironman/" target="_blank" class="menu__item-link hidden-xs">2024 鐵人賽</a>
-                    </li>
-                </ul>
-                
-
-                                    
-                    <ul class="list-unstyled menu__right">
-                        <li class="menu__item">
-                            <div id="searchDropdown" class="menu__search-btn menu__search-btn--active">
-                                <span class="menu__search-toggle active"></span>
-                            </div>
-                        </li>
-                        <li class="menu__item">
-                            <a href="https://ithelp.ithome.com.tw/users/login" class="menu__item-link">登入/註冊</a>
-                        </li>
-                    </ul>
-                            </div>
+      <slot/>   
         </div>
-    </div>
+
 
     <footer>
       <div class=" flex bg-Bottom-pink w-full  h-5/5  text-white">
@@ -184,13 +151,10 @@ const menuList = computed(() => [
       <li><a href="/news">News</a></li></ul></div>
       <div class="ml-40 mt-8 ">
       <div class="  tracking-wide font-bold mb-3 ">HELP</div><ul>
-      <li><a href="">會員及購物問題</a></li>
-      <li><a href="">Privacy Policy</a></li>
+      <li @click="('/service')" class="cursor-pointer">商品售後服務說明</li>
     </ul> </div>
     <div class="ml-40 mt-8">
     <div class=" tracking-wide font-bold mb-3 ">SOCIAL</div><ul>
-    <li><a href="https://www.instagram.com/meierq" target="_blank">Instagram</a></li>
-    <li><a href="https://www.facebook.com/meier.q" target="_blank">Facebook</a></li>
     <li><a href="https://line.me/ti/p/SJqjZ4H6OD" target="_blank">Line</a></li>
     </ul>
     </div>

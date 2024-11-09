@@ -3,68 +3,69 @@ import { placements } from 'ant-design-vue/es/vc-tour/placements';
 import { useRouter, useRoute } from 'vue-router';
 import { useProductStore } from '@/store/module/product'
 import { ref, computed, watch } from 'vue'
-import CartCard from '@/components/cartCard.vue'
+import CartCard from '@/components/CartCard.vue'
 import Checkbox from '@/components/Checkbox.vue'
+import { all } from 'axios';
 
 const router = useRouter()
 const changePage = (url) => {
   router.push(url)
 }
 const productStore = useProductStore()
-const cart = computed(() => productStore.cart)
+const cart = ref(productStore.cart.map(item => ({ ...item })))
 const totalPrice = computed(() => {
   let price = 0
   for (const item of cart.value) {
-    price += item.price * item.quantity
+    if (item.checked) {
+      price += item.price * item.quantity
+    }
   }
   return price
 })
 const totalQuantity = computed(() => {
   let quantity = 0
   for (const item of cart.value) {
-    quantity += item.quantity
+    if (item.checked) {
+      quantity += item.quantity
+    }
   }
   return quantity
 })
-console.log(cart.value);
 const removeCart = (idx) => {
   // 資料庫刪掉 store
   productStore.removeCart(idx)
 }
-
-const isFavorite = ref(productStore.favoriteProducts.some(item => item.id === routeId.value))
-const handleFavorite = (id) => {
-  isFavorite.value = !isFavorite.value
-  if (isFavorite.value) {
-    message.success('已加入收藏')
-  } else {
-    message.success('移除收藏')
-  }
-  productStore.setFavoriteProducts(id)
+const handleCheckedChange = (index, newCheck) => {
+  const newCart = [...cart.value]
+  newCart[index].checked = newCheck
+  cart.value = newCart
 }
+
+const handleSelectChange = (index, newQty) => {
+  const newCart = [...cart.value]
+  newCart[index].quantity = newQty
+  cart.value = newCart
+}
+
 const allCheck = ref(false)
-const selectedProducts = ref([])
-const handleCartSelect = (check, idx) => {
-  console.log(selectedProducts.value);
-  const isSelected = selectedProducts.value.some(index => index === idx)
-  if (check && !isSelected) {
-    selectedProducts.value = [...selectedProducts.value, idx]
-  } else {
-    selectedProducts.value = selectedProducts.value.filter(index => index !== idx)
-  }
-}
-const handleAllCheck = (check) => {
-  if (check) {
-    selectedProducts.value = cart.value.map((_, idx) => idx)
-  } else {
-    selectedProducts.value = []
-  }
+const toggleSelectAll = (newCheck) => {
+  allCheck.value = newCheck
+  cart.value = cart.value.map(item => ({
+    ...item,
+    checked: newCheck
+  }))
 }
 
-watch(selectedProducts, (newVal) => {
-  allCheck.value = newVal.length === cart.value.length
-  console.log(newVal.length === cart.value.length);
-})
+const checkout = () => {
+  const newCart = cart.value.filter(item => item.checked)
+  productStore.setCart(newCart)
+  changePage('/booking')
+}
+
+watch(cart, (newCart) => {
+  allCheck.value = newCart.every(item => item.checked)
+}, { deep: true })
+
 </script>
 
 <template>
@@ -83,17 +84,18 @@ watch(selectedProducts, (newVal) => {
     </div>
     <div class="flex justify-center">
       <div class="w-2/5 p-3 rounded-2xl bg-white ">
-        <checkbox
-          class="border-b border-solid border-black mb-4 pb-3" :checked="allCheck"
-          @checked-change="handleAllCheck">
+        <checkbox class="border-b border-solid border-black mb-4 pb-3" v-model:checked="allCheck"
+        @checked-change="toggleSelectAll"
+        >
           <template #title>
             全選
           </template>
         </checkbox>
-        <cart-card class="mb-3" v-for="(item, idx) in cart" :key="item.id" :image="item.cover" :name="item.name"
-          :price="item.price" :quantity="item.quantity" :size="item.size" @remove-cart="removeCart(idx)"
-          :checked="selectedProducts.some(item => item === idx)"
-          @checked-change="(val) => handleCartSelect(val, idx)" />
+        <cart-card
+        v-model:checked="item.checked" class="mb-3" v-for="(item, idx) in cart" :key="item.id"
+          :image="item.cover" :name="item.name" :price="item.price" :quantity="item.quantity" :size="item.size"
+          @remove-cart="removeCart(idx)" @checked-change="handleCheckedChange(idx, $event)"
+          @select-change="handleSelectChange(idx, $event)" />
       </div>
       <div class="w-1/5 h-1/2 p-4 bg-white rounded-2xl mx-10">
         <div class="px-2 pb-8 flex-col">
@@ -101,7 +103,7 @@ watch(selectedProducts, (newVal) => {
           <p class="text-2xl font-bold">NT$ {{ totalPrice }}</p>
         </div>
         <button class="w-full py-1 px-5 text-lg font-bold rounded-xl bg-[#cd333339] text-[#cd3333] cursor-pointer"
-          @click="changePage('/booking')">
+          @click="checkout">
           前往結帳
         </button>
       </div>
