@@ -15,6 +15,7 @@ const changeImage = (image) => {
   activeImage.value = image
 }
 
+
 const baseUrl =
   'https://raw.githubusercontent.com/vueComponent/ant-design-vue/main/components/carousel/demo/';
 const getImgUrl = i => {
@@ -104,7 +105,7 @@ console.log(chosenSize.value);
             :class="[`${isFavorite ? 'fa-solid' : 'fa-regular'}`]"></i>
         </p>
         <div class="text-xl font-bold flex justify-between mb-5">
-          <p>NT.575</p>
+          <p>NT.{{ product.price }}</p>
           <ul class="flex cursor-pointer">
             <li v-for="size in sizeList" :key="size.value" @click="setChosenSize(size.value)"
               class="border px-2 text-lg mr-6 border-solid"

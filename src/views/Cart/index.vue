@@ -56,6 +56,7 @@ const toggleSelectAll = (newCheck) => {
   }))
 }
 
+const checkoutStatus = computed(() => cart.value.some(item => item.checked))
 const checkout = () => {
   const newCart = cart.value.filter(item => item.checked)
   productStore.setCart(newCart)
@@ -69,7 +70,7 @@ watch(cart, (newCart) => {
 </script>
 
 <template>
-  <div class="bg-[#F8C3CD] h-full">
+  <div class="bg-[#F8C3CD] min-h-[calc(100vh-392px)] pt-5">
     <div class="flex justify-center py-2">
       <i class="fa-solid fa-cart-shopping  ">
         <dt class="rounded-full bg-slate-100 size-8  -my-6 -mx-1.5"></dt>
@@ -85,14 +86,12 @@ watch(cart, (newCart) => {
     <div class="flex justify-center">
       <div class="w-2/5 p-3 rounded-2xl bg-white ">
         <checkbox class="border-b border-solid border-black mb-4 pb-3" v-model:checked="allCheck"
-        @checked-change="toggleSelectAll"
-        >
+          @checked-change="toggleSelectAll">
           <template #title>
             全選
           </template>
         </checkbox>
-        <cart-card
-        v-model:checked="item.checked" class="mb-3" v-for="(item, idx) in cart" :key="item.id"
+        <cart-card v-model:checked="item.checked" class="mb-3" v-for="(item, idx) in cart" :key="item.id"
           :image="item.cover" :name="item.name" :price="item.price" :quantity="item.quantity" :size="item.size"
           @remove-cart="removeCart(idx)" @checked-change="handleCheckedChange(idx, $event)"
           @select-change="handleSelectChange(idx, $event)" />
@@ -102,8 +101,9 @@ watch(cart, (newCart) => {
           <p class="pb-2 text-lg">{{ totalQuantity }} 件總計</p>
           <p class="text-2xl font-bold">NT$ {{ totalPrice }}</p>
         </div>
-        <button class="w-full py-1 px-5 text-lg font-bold rounded-xl bg-[#cd333339] text-[#cd3333] cursor-pointer"
-          @click="checkout">
+        <button
+          class="w-full py-1 px-5 text-lg font-bold rounded-xl bg-[#cd333339] text-[#cd3333] cursor-pointer disabled:bg-[#e1e1e1] disabled:text-[#aaaaaa]"
+          @click="checkout" :disabled="!checkoutStatus">
           前往結帳
         </button>
       </div>

@@ -13,7 +13,7 @@
   "id": 2,
   "name": "透紗木耳邊V領外罩洋裝",
   "cover": "https://pics.meierq.com/meierq/ProductBasics/26fdc38d-ae44-4bb1-a277-14063968be52.jpg",
-  "images": ["https://pics.meierq.com/meierq/ProductCovers/11ac9699-1dcd-4260-9178-d80db6879c74_w886_h1128.jpg", "https://pics.meierq.com/meierq/ProductBasics/ff09e4e0-b88a-4bb8-a983-1da40b92532a.jpg", "https://pics.meierq.com/meierq/ProductBasics/dae6e427-4fa8-4d13-ab32-b2a559d1f73f.jpg", "https://pics.meierq.com/meierq/ProductBasics/43d2549c-0738-493b-ab2f-d4bccd3db3a7.jpg"],
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/43d2549c-0738-493b-ab2f-d4bccd3db3a7.jpg", "https://pics.meierq.com/meierq/ProductBasics/ff09e4e0-b88a-4bb8-a983-1da40b92532a.jpg", "https://pics.meierq.com/meierq/ProductBasics/dae6e427-4fa8-4d13-ab32-b2a559d1f73f.jpg", "https://pics.meierq.com/meierq/ProductBasics/43d2549c-0738-493b-ab2f-d4bccd3db3a7.jpg"],
   "price": 590,
   "category": "hot",
   "discount": 0.88,
@@ -23,7 +23,7 @@
   "id": 3,
   "name": "V領造型BRA TOP",
   "cover": "https://pics.meierq.com/meierq/ProductBasics/51578008-805a-40d3-91e5-3da5e0daadc7.jpg",
-  "images": ["https://pics.meierq.com/meierq/ProductBasics/51578008-805a-40d3-91e5-3da5e0daadc7.jpg", "https://pics.meierq.com/meierq/ProductBasics/40af67ef-e694-4ed7-bf51-27f184b67e9f.jpg", "https://pics.meierq.com/meierq/ProductBasics/66d7a7cd-37f7-4bff-a255-1eab8357c033.jpg", "https://pics.meierq.com/meierq/ProductBasics/79a433fe-ff04-4fe0-9312-2e7aa50abf01.jpg"],
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/79a433fe-ff04-4fe0-9312-2e7aa50abf01.jpg", "https://pics.meierq.com/meierq/ProductBasics/40af67ef-e694-4ed7-bf51-27f184b67e9f.jpg", "https://pics.meierq.com/meierq/ProductBasics/66d7a7cd-37f7-4bff-a255-1eab8357c033.jpg", "https://pics.meierq.com/meierq/ProductBasics/79a433fe-ff04-4fe0-9312-2e7aa50abf01.jpg"],
   "price": 890,
   "category": "hot",
   "discount": 0.79,
@@ -42,7 +42,7 @@
 {
   "id": 5,
   "name": "蕾絲小花小高領短袖上衣",
-  "cover": "hhttps://pics.meierq.com/meierq/ProductBasics/2ca94668-868b-4c31-96ab-ccc68b772615.jpg",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/2ca94668-868b-4c31-96ab-ccc68b772615.jpg",
   "images": ["https://pics.meierq.com/meierq/ProductBasics/2ca94668-868b-4c31-96ab-ccc68b772615.jpg", "https://pics.meierq.com/meierq/ProductBasics/c2a831d1-6b7d-4215-ad8a-5e9ff9ca6cd7.jpg", "https://pics.meierq.com/meierq/ProductBasics/624e349d-c9f8-4289-891e-12dca7a54c35.jpg", "https://pics.meierq.com/meierq/ProductBasics/97ac496f-9b2a-4e03-83a8-352f21802498.jpg"],
   "price": 399,
   "category": "featured",
@@ -53,7 +53,7 @@
 {
   "id": 6,
   "name": "皮革開釦外套",
-  "cover": "hhttps://pics.meierq.com/meierq/ProductBasics/29506ea3-6709-4885-8cfa-7e20a73b8eb0.jpg",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/29506ea3-6709-4885-8cfa-7e20a73b8eb0.jpg",
   "images": ["https://pics.meierq.com/meierq/ProductBasics/29506ea3-6709-4885-8cfa-7e20a73b8eb0.jpg", "https://pics.meierq.com/meierq/ProductBasics/b0609b25-e15f-4ff5-9d2e-465c6fa5ef7b.jpg", "https://pics.meierq.com/meierq/ProductBasics/1c68ba5c-d364-48c8-a94b-55c390d0b638.jpg", "https://pics.meierq.com/meierq/ProductBasics/ea3a0a41-9a41-481b-93d2-863b36ed1883.jpg"],
   "price": 1490,
   "category": "featured",
@@ -212,5 +212,94 @@
   "discount": 0.88,
   "createdAt": 1723046400
 }
+,
+{
+  "id": 21,
+  "name": " 薄紗褶皺假兩件露肩衣",
+  "cover": "https://cdn.grail.bz/images/goods/d/kz520/kz520_v1.jpg",
+  "images": ["https://cdn.grail.bz/images/goods/d/kz520/kz520_v1.jpg", "https://cdn.grail.bz/images/goods/d/kz520/kz520_v2.jpg", "https://cdn.grail.bz/images/goods/d/kz520/kz520_v10.jpg", "https://cdn.grail.bz/images/goods/d/kz520/kz520_v11.jpg"],
+  "price": 350,
+  "category": "recommend",
+  "discount": 0.88,
+  "createdAt": 1723046400
+}
+,
+{
+  "id": 22,
+  "name": "日常百搭削肩背心",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/afb7bcd9-6fa2-4143-9f6e-03c08274402c.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/afb7bcd9-6fa2-4143-9f6e-03c08274402c.jpg", "https://pics.meierq.com/meierq/ProductBasics/60651cb5-807f-43f2-8e02-a5ea0fa3e2ad.jpg", "https://pics.meierq.com/meierq/ProductBasics/208aff1d-d303-4dfd-9f2c-14c927f6a030.jpg", "https://pics.meierq.com/meierq/ProductBasics/64bd0189-33d3-46cc-8676-f35985148b6d.jpg"],
+  "price": 490,
+  "category": "recommend",
+  "discount": 0.88,
+  "createdAt": 1723046400
+}
+,
+{
+  "id": 23,
+  "name": "花卉圖案獨立浴衣",
+  "cover": "https://cdn.grail.bz/images/goods/d/fy016/fy016_v6.jpg",
+  "images": ["https://cdn.grail.bz/images/goods/d/fy016/fy016_v6.jpg", "https://cdn.grail.bz/images/goods/d/fy016/fy016_v1.jpg", "https://cdn.grail.bz/images/goods/d/fy016/fy016_v2.jpg", "https://cdn.grail.bz/images/goods/d/fy016/fy016_v10.jpg"],
+  "price": 1250,
+  "category": "recommend",
+  "discount": 0.88,
+  "createdAt": 1723046400
+}
+,
+{
+  "id": 24,
+  "name": "花卉蕾絲美人魚裙",
+  "cover": "https://cdn.grail.bz/images/goods/d/nh54/nh54_v1.jpg",
+  "images": ["https://cdn.grail.bz/images/goods/d/nh54/nh54_v1.jpg", "https://cdn.grail.bz/images/goods/d/nh54/nh54_v10.jpg", "https://cdn.grail.bz/images/goods/d/nh54/nh54_v5.jpg", "https://cdn.grail.bz/images/goods/d/nh54/nh54_v9.jpg"],
+  "price": 490,
+  "category": "recommend",
+  "discount": 0.88,
+  "createdAt": 1723046400
+}
+,
+{
+  "id": 25,
+  "name": "前中線圓領長袖上衣",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/a1c70061-dc39-4604-ab96-e3bde9862351.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/a1c70061-dc39-4604-ab96-e3bde9862351.jpg", "https://pics.meierq.com/meierq/ProductBasics/e4d583aa-b8e3-4096-8699-d8d261239d7a.jpg", "https://pics.meierq.com/meierq/ProductBasics/b187ae19-5203-41de-8834-5709bca8a05c.jpg", "https://pics.meierq.com/meierq/ProductBasics/c805891d-709b-4385-83d2-ed1feed17648.jpg"],
+  "price": 399,
+  "category": "recommend",
+  "discount": 0.88,
+  "createdAt": 1723046400
+}
+,
+{
+  "id": 26,
+  "name": "蝴蝶結喇叭袖針織短上衣",
+  "cover": "https://cdn.grail.bz/images/goods/d/dr682/dr682_v1.jpg",
+  "images": ["https://cdn.grail.bz/images/goods/d/dr682/dr682_v1.jpg", "https://cdn.grail.bz/images/goods/d/dr682/dr682_v2.jpg", "https://cdn.grail.bz/images/goods/d/dr682/dr682_v10.jpg", "https://cdn.grail.bz/images/goods/d/dr682/dr682_v9.jpg"],
+  "price": 380,
+  "category": "recommend",
+  "discount": 0.88,
+  "createdAt": 1723046400
+}
+,
+{
+  "id": 27,
+  "name": "格子蝴蝶結褶皺連身裙",
+  "cover": "https://img.boutirapp.com/i/EFl-Oc0OU6EcmGBRX97LKIRhLYkCwRNS5d452DVlbZF=slg",
+  "images": ["https://img.boutirapp.com/i/EFl-Oc0OU6EcmGBRX97LKIRhLYkCwRNS5d452DVlbZF=slg", "https://img.boutirapp.com/i/5iqyYj2qVfgDkpJbxQ1tQiCZjKUCVNFDXeeXGXz0orO=smd", "https://img.boutirapp.com/i/JjehHnjufmKW1PhPsNL-B5bjcp8gUEaW8ZMhNbkOujj=smd", "https://img.boutirapp.com/i/E2RKb7V7FCktvkizyK25oX7vbgz5aIZZu-CN7bPze6=smd"],
+  "price": 990,
+  "category": "recommend",
+  "discount": 0.88,
+  "createdAt": 1723046400
+}
+,
+{
+  "id": 28,
+  "name": "細肩綁帶透肌洋裝",
+  "cover": "https://pics.meierq.com/meierq/ProductBasics/9a44d069-30d6-4ac7-bd4a-5d7f60201cdd.jpg",
+  "images": ["https://pics.meierq.com/meierq/ProductBasics/9a44d069-30d6-4ac7-bd4a-5d7f60201cdd.jpg", "https://pics.meierq.com/meierq/ProductBasics/8458f47c-5c89-42b2-a28d-b433b8e9cacd.jpg", "https://pics.meierq.com/meierq/ProductBasics/9736edea-be55-43a3-88b8-013115e83082.jpg", "https://pics.meierq.com/meierq/ProductBasics/e3b01fa9-d692-4110-9c91-6485576c12d0.jpg"],
+  "price": 890,
+  "category": "recommend",
+  "discount": 0.88,
+  "createdAt": 1723046400
+}
+
 
 ]

@@ -64,9 +64,9 @@ watch(() => orderInfo, (newVal) =>{
 </script>
 
 <template>
-  <div class="bg-[#F8C3CD]">
+  <div class="bg-[#F8C3CD] min-h-[calc(100vh-392px)] pt-5">
 
-    <div class="flex justify-center mt-8 py-2  mb-10  ">
+    <div class="flex justify-center">
       <i class="fa-solid fa-cart-shopping "></i>
       <ul class="ml-4">購物清單</ul>
       <div class="hori-line mt-4 ml-4 "></div>
@@ -79,7 +79,7 @@ watch(() => orderInfo, (newVal) =>{
       <ul class="ml-4">完成訂單</ul>
     </div>
 
-    <div class="py-2 px-4 mb-4 mx-32 flex flex-col items-center justify-center">
+    <div class="py-2 px-4 mx-32 flex flex-col items-center justify-center">
       <div class="w-[70%] mt-6 mb-6 p-4 flex flex-col rounded-2xl bg-white ">
         <h3 class="px-2 pb-3 text-xl font-bold">訂單資料 </h3>
         <div class="m-3 flex justify-between text-lg">

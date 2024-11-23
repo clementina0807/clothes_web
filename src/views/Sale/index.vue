@@ -92,10 +92,10 @@ watch(route, (newVal) => {
               :image="item.images[0]"
               :name="item.name"
               :price="item.price"
+              :label="category === 'global' ? 'New' : 'Sale'"
             />
           </div>
         </template>
-        
         <template v-else>
           <div class="h-60">
           <div class="bg-pink-300 text-white font-bold px-2 py-1 rounded flex justify-center items-center h-8 ">

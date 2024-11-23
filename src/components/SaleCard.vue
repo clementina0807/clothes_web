@@ -15,6 +15,9 @@ defineProps({
   },
   price: {
     type: Number
+  },
+  label: {
+    type: String
   }
 })
 // const productStore = useProductStore()
@@ -26,8 +29,8 @@ const handleClick = () => {
 }
 </script>
 <template>
-  <div @click="handleClick" class="relative flex flex-col items-center">
-   <div class="w-full h-[300px] bg-cover bg-center" :class="[`bg-[url(${cover})]`, `hover:bg-[url(${image})]`]">
+  <div @click="handleClick" class="relative flex flex-col items-center w-full">
+    <div class="w-full h-[300px] bg-cover bg-center" :style="{ backgroundImage: `url(${cover})` }">
     </div>
     <div class="mb-2 flex flex-col items-center">
       <p class="flex cursor-pointer justify-center mt-2">
@@ -41,8 +44,9 @@ const handleClick = () => {
       <span class="text-sm mt-2">NT. {{ price }}</span>
     </div>
     <div class="absolute top-8 left-8 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-      <button class="bg-title-pink border-solid mb-30 w-10 h-8 text-white ">sale</button>
-      <button class="">new</button>
+      <button class="bg-title-pink border-solid mb-30 w-10 h-8 text-white ">
+        {{ label }}
+      </button>
     </div>
   </div>
 </template>

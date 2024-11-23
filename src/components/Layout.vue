@@ -1,13 +1,20 @@
 <script setup>
-import{ reactive, ref ,computed} from 'vue'
+import { reactive, ref, computed, onMounted} from 'vue'
 import axios from 'axios'
 import { useRouter, useRoute } from 'vue-router';
 import { useUserStore } from '@/store/module/user'
 import { userApi } from '@/api/user'
-import { message } from 'ant-design-vue';
+import { Button, message } from 'ant-design-vue';
 import { useI18n } from 'vue-i18n'
 import { setLanguage } from "@/utils/localStorage";
+import AdModal from '@/components/AdModal.vue'
+import MusicPlayer from '@/components/MusicPlayer.vue'
+import { productApi } from '@/api/product'
+import { useProductStore } from '@/store/module/product'
 
+
+
+const name = computed(() => route.query.name)
 
 const userStore = useUserStore()
 const myToken = ref(userStore.token)
@@ -20,7 +27,15 @@ const scrollUp = () =>{
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
+const searchResults = ref([]);  
+const keyword = ref(''); 
 
+const getProducts = async () => {
+  const { data } = await productApi.getProducts()
+  products.value = data          
+}
+
+onMounted(() => getProducts())  
 
 // 翻譯
 const { t, locale } = useI18n()
@@ -63,15 +78,17 @@ const login = async () => {
     showModal(false)
   }
 }
+// 用來切換主題的變數
+const isDarkTheme = ref(false);
 
-// 改變主題
-const isDarkTheme = computed(() => useUserStore.isDarkTheme)
+const toggleTheme = () => {
+  isDarkTheme.value = !isDarkTheme.value;
+};
 
-const changeTheme = (isDark) => {
-  isDarkTheme.value = isDark
-  userStore.setIsDarkTheme(isDark)
-  const messageText = isDark ? '暗黑模式' : '明亮模式'
-  message.success(messageText)
+const isSearch = ref(false)
+
+const toggleIsSearch = () => {
+  isSearch.value = !isSearch.value
 }
 
 
@@ -79,17 +96,17 @@ const menuList = computed(() => [
   {
     icon: 'fa-solid fa-magnifying-glass',
     title: t('product_search'),
-    action: () => changePage('/search')
+    action: () => toggleIsSearch()
   },
   {
     icon: 'fa-solid fa-cart-shopping',
     title: t('shopping_cart'),
     action: () => changePage('/cart')
   },
-  {
-    icon: 'fa-solid fa-receipt',
-    title: t('order_search')
-  },
+  // {
+  //   icon: 'fa-solid fa-receipt',
+  //   title: t('order_search')
+  // },
   {
     icon: 'fa-regular fa-pen-to-square',
     title: t('blog'),
@@ -110,93 +127,91 @@ const menuList = computed(() => [
     title: t('theme')
   }
 ])
+
+const showAd = ref(true)
+const searchValue = ref('')
+
+const search = () => {     
+  const keyword = searchValue.value.trim();
+  if (keyword) {
+    changePage(`/search?keyword=${searchValue.value}`);
+  } else {
+    message.warning('請輸入搜尋關鍵字');
+  }
+}
+
+
+
 </script>
 
 <template>
+
   <div class="flex flex-col min-h-screen">
     <header class="bg-headerColor bg-opacity-pink-300">
-      <ul class="flex justify-end px-3 py-3 ">
-        <li v-for="item in menuList" :key="item.icon"
-          class="flex flex-col items-center mr-5 last:mr-0 cursor-pointer group" @click="item.action">
-          <i :class="item.icon" class="mb-1"></i>
-          <span class="text-xs invisible group-hover:visible">{{ item.title }}</span>
-        </li>
-      </ul>
+      <div class="px-3 py-3 flex items-center justify-between">
+        <music-player />
+        <ul class="flex">
+            <div v-if="isDarkTheme" class="darkMode" >
+              <i  class="fa-solid fa-moon" button @click="toggleTheme "></i>
+             </div>
+            <div v-else class="lightMode">
+              <i class="fa-regular fa-moon" button @click="toggleTheme "></i>
+             </div>
+          <li v-for="item in menuList" :key="item.icon"
+            class="flex flex-col items-center mr-5 last:mr-0 cursor-pointer group" @click="item.action">
+            <i :class="item.icon" class="mb-1"></i>
+            <span class="text-xs invisible group-hover:visible">{{ item.title }}</span>
+          </li>
+        </ul>
+      </div>
+      <div v-if="isSearch" class="text-center">
+        <input class="border border-solid border-black" type="text" v-model="searchValue" @keydown.enter="search"
+          placeholder="  SEARCH 搜尋...">
+      </div>
+
+      
       <a href="http://localhost:5173/">
         <img class="w-[200px] block mx-auto cursor-pointer " src="@/assets/images/b.gif" alt="" /></a>
 
     </header>
     <ul class="flex justify-center sticky top-0 bg-white drop-shadow-lg z-50">
       <li class="mr-9 nav-list">
-        <div @click="changePage('/sale?category=featured')" class="nav-link relative text-xl py-5 inline-block cursor-pointer font-semibold">{{ t('summer_sale') }}</div>
+        <div @click="changePage('/sale?category=featured')"
+          class="nav-link relative text-xl py-5 inline-block cursor-pointer font-semibold">{{ t('summer_sale') }}</div>
       </li>
       <li class="mr-9 nav-list">
-        <div @click="changePage('/sale?category=hot')" class="nav-link relative text-xl py-5 inline-block cursor-pointer font-semibold">{{ t('bestseller') }}</div>
+        <div @click="changePage('/sale?category=hot')"
+          class="nav-link relative text-xl py-5 inline-block cursor-pointer font-semibold">{{ t('bestseller') }}</div>
       </li>
       <li class="mr-9 nav-list">
-        <div @click="changePage('/sale?category=global')" class="nav-link relative text-xl py-5 inline-block cursor-pointer font-semibold text-rose-800">{{ t('in_stock') }}</div>
+        <div @click="changePage('/sale?category=global')"
+          class="nav-link relative text-xl py-5 inline-block cursor-pointer font-semibold text-rose-800">{{
+          t('in_stock') }}</div>
       </li>
     </ul>
     <div class="flex-1 h-full">
-      <slot/>   
-        </div>
-
-
-    <footer>
-      <div class=" flex bg-Bottom-pink w-full  h-5/5  text-white">
-      <div class="ml-40 mt-8">
-      <div class="tracking-wide font-bold mb-3">ABOUT</div><ul>
-      <li><a href="" class="">品牌介紹</a></li>
-      <li><a href="" class="">門市資訊</a></li>
-      <li><a href="">品牌合作</a></li>
-      <li><a href="/news">News</a></li></ul></div>
-      <div class="ml-40 mt-8 ">
-      <div class="  tracking-wide font-bold mb-3 ">HELP</div><ul>
-      <router-link to="/service">
-       <li class="cursor-pointer">商品售後服務說明</li>
-      </router-link>
-    </ul> </div>
-    <div class="ml-40 mt-8">
-    <div class=" tracking-wide font-bold mb-3 ">SOCIAL</div><ul>
-    <li><a href="https://line.me/ti/p/SJqjZ4H6OD" target="_blank">Line</a></li>
-    </ul>
+      <slot />
     </div>
-
-    <div class="mx-40">
-    <div class="mt-8 mb-2 tracking-wide font-bold">NEWS LETTER</div>
-    <div class="news-letter">
-    <form id="form-newsletter-signup" novalidate="novalidate">
-    <input type="email" class="text-slate-950 mt-2" name="email" placeholder="EMAIL" required=""/>
-    <button class="subscribe-mail-btn mx-4 flex-col " type="submit">SUBSCRIBE
-　　　
-      
-    </button>
-    </form>
-    </div> 
-
-
-  
-    <div class="tracking-wide font-bold mt-4 ">CUSTOMER SERVICE</div>
-    <p class="">clpes12061014ab@gmail.com</p>
-    <p class="mb-2"> Mon.~ Fri. 09:00-12:00 / 13:00-18:00</p>
-   
-    <div class="tracking-wide -ml-[732px] ">© 薩摩亞商皇后國際有限公司台灣分公司｜統一編號 53678183</div>
-    </div>
-    </div>
+    <footer class="py-[20px] bg-Bottom-pink text-white">
+      <p class="text-center">© 薩摩亞商皇后國際有限公司台灣分公司｜統一編號 53678183</p>
     </footer>
-    </div>
+    <ad-modal :is-show="showAd" />
+   </div> 
+ 
 
   <div>
-    <a-modal v-model:open="open" title= "會員登入" @ok="login" class="text-center" ok-text= "登入"  >
+    <a-modal v-model:open="open" title="會員登入" @ok="login" class="text-center" ok-text="登入">
       <p class="text-base font-medium leading-[0px] pb-8 ">SIGN IN</p>
       <div class="flex">
-      <label for="username" class="mr-2 w-[100px] text-right">使用者名稱</label>
-      <input v-model="loginForm.username" placeholder=" Username" class=" rounded-lg mb-10 mx-10" /></div>
+        <label for="username" class="mr-2 w-[100px] text-right">使用者名稱</label>
+        <input v-model="loginForm.username" placeholder=" Username" class=" rounded-lg mb-10 mx-10" />
+      </div>
       <div class="flex">
-      <label for="username"  class="mr-2 w-[100px] text-right">密碼</label>
-      <input v-model="loginForm.password" placeholder=" Password" type="password" class=" rounded-lg mb-7 mx-10"/></div>
+        <label for="username" class="mr-2 w-[100px] text-right">密碼</label>
+        <input v-model="loginForm.password" placeholder=" Password" type="password" class=" rounded-lg mb-7 mx-10" />
+      </div>
     </a-modal>
-     <div @click="scrollUp" class="fixed bottom-[30px] text-3xl right-[15px] drop-shadow-lg ">
+    <div @click="scrollUp" class="fixed bottom-[30px] text-3xl right-[15px] drop-shadow-lg ">
       <i class="fa-solid fa-circle-chevron-up cursor-pointer " style="color: #ffffff"></i>
       <a line="" idx="" href="https://line.me/ti/p/~@hsia.vv">
         <img src="@/assets/images/line.png" class="fixed drop-shadow-md bottom-12 " alt=""></a>
@@ -284,15 +299,20 @@ main {
   margin-bottom: 10px;
 }
 
-footer {
-  color: #fff;
-  height:200px;
-}
-
 .info-list__item{
   display: flex;
   justify-content: flex-start;
   margin-bottom: 20px;
   }
+
+  .darkMode{
+  background-color: #121212;
+  color: white;
+  }
+
+.lightMode {
+  background-color: white;
+  color: black;
+}
 
 </style>
